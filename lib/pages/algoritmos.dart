@@ -38,12 +38,34 @@ class Algoritmos extends StatelessWidget {
       body: Column(
         children: [
           Container(
+            margin: const EdgeInsets.only(top: 40),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(149, 250, 226, 105),
+              borderRadius: BorderRadius.circular(12),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(
+                    4.0,
+                    4.0,
+                  ),
+                  blurRadius: 4.0,
+                  spreadRadius: 2.0,
+                ), //BoxShadow
+                BoxShadow(
+                  color: Colors.white,
+                  offset: Offset(0.0, 0.0),
+                  blurRadius: 0.0,
+                  spreadRadius: 0.0,
+                ), //BoxShadow
+              ],
+            ),
             height: 100,
-            width: double.infinity,
+            width: 390,
             alignment: Alignment.center,
             padding: const EdgeInsets.all(20.0),
             child: const Text(
-              'TIPOS DE ALGORITMOS DE ORDENAÇÃO MAIS COMUNS',
+              'TIPOS DE ALGORITMOS DE ORDENAÇÃO',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -52,131 +74,207 @@ class Algoritmos extends StatelessWidget {
             ),
           ),
           Container(
-            height: 100,
-            width: double.infinity,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.all(20.0),
-            child: const Text(
-              'ALGORITMOS',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 0, 0, 0),
-              ),
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              // Ação quando o Container é pressionado
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const Selectionsort()));
-            },
-            child: Container(
-              height: 47,
-              width: 390,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromRGBO(
-                      246, 224, 73, 1), // Cor da linha (borda)
-                  width: 2.0, // Espessura da linha
-                ),
-              ),
-              child: const Text('Selection Sort',
+            margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
+            child: Column(
+              children: [
+                // Conteúdo do container
+                const SizedBox(height: 15),
+                const Text(
+                  'ALGORITMOS',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
-                  )),
+                  ),
+                ),
+                const SizedBox(height: 15),
+                Container(
+                  width: 150,
+                  height: 2, // Espessura da linha
+                  color: const Color.fromARGB(255, 0, 0, 0), // Cor da linha
+                ),
+                // Linha de baixo
+              ],
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  // Ação quando o Container é pressionado
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const Selectionsort()));
+                },
+                child: Container(
+                  height: 107,
+                  width: 170,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color.fromRGBO(237, 133, 59, 1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(
+                          4.0,
+                          4.0,
+                        ),
+                        blurRadius: 4.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text('Selection Sort',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  // Ação quando o Container é pressionado
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const Bubblesort()));
+                },
+                child: Container(
+                  height: 107,
+                  width: 170,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color.fromRGBO(237, 133, 59, 1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(
+                          4.0,
+                          4.0,
+                        ),
+                        blurRadius: 4.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text('Bubble Sort',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 30),
-          InkWell(
-            onTap: () {
-              // Ação quando o Container é pressionado
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const Bubblesort()));
-            },
-            child: Container(
-              height: 47,
-              width: 390,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromRGBO(
-                      246, 224, 73, 1), // Cor da linha (borda)
-                  width: 2.0, // Espessura da linha
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              InkWell(
+                onTap: () {
+                  // Ação quando o Container é pressionado
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const Insertionsort()));
+                },
+                child: Container(
+                  height: 107,
+                  width: 170,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color.fromRGBO(237, 133, 59, 1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(
+                          4.0,
+                          4.0,
+                        ),
+                        blurRadius: 4.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text('Insertion Sort',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
                 ),
               ),
-              child: const Text('Bubble Sort',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
-          ),
-          const SizedBox(height: 30),
-          InkWell(
-            onTap: () {
-              // Ação quando o Container é pressionado
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          const Insertionsort()));
-            },
-            child: Container(
-              height: 47,
-              width: 390,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromRGBO(
-                      246, 224, 73, 1), // Cor da linha (borda)
-                  width: 2.0, // Espessura da linha
+              InkWell(
+                onTap: () {
+                  // Ação quando o Container é pressionado
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              const Mergesort()));
+                },
+                child: Container(
+                  height: 107,
+                  width: 170,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: const Color.fromRGBO(237, 133, 59, 1),
+                    boxShadow: const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(
+                          4.0,
+                          4.0,
+                        ),
+                        blurRadius: 4.0,
+                        spreadRadius: 2.0,
+                      ), //BoxShadow
+                      BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0.0, 0.0),
+                        blurRadius: 0.0,
+                        spreadRadius: 0.0,
+                      ), //BoxShadow
+                    ],
+                  ),
+                  alignment: Alignment.center,
+                  child: const Text('Merge Sort',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      )),
                 ),
               ),
-              child: const Text('Insertion Sort',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
-          ),
-          const SizedBox(height: 30),
-          InkWell(
-            onTap: () {
-              // Ação quando o Container é pressionado
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const Mergesort()));
-            },
-            child: Container(
-              height: 47,
-              width: 390,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromRGBO(
-                      246, 224, 73, 1), // Cor da linha (borda)
-                  width: 2.0, // Espessura da linha
-                ),
-              ),
-              child: const Text('Merge Sort',
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 0, 0, 0),
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  )),
-            ),
+            ],
           ),
           const SizedBox(height: 30),
           InkWell(
@@ -188,16 +286,30 @@ class Algoritmos extends StatelessWidget {
                       builder: (BuildContext context) => const Quicksort()));
             },
             child: Container(
-              height: 47,
-              width: 390,
-              alignment: Alignment.center,
+              height: 107,
+              width: 380,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color.fromRGBO(
-                      246, 224, 73, 1), // Cor da linha (borda)
-                  width: 2.0, // Espessura da linha
-                ),
+                borderRadius: BorderRadius.circular(5),
+                color: const Color.fromRGBO(250, 227, 105, 1),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(
+                      4.0,
+                      4.0,
+                    ),
+                    blurRadius: 4.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
               ),
+              alignment: Alignment.center,
               child: const Text('Quick Sort',
                   style: TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
