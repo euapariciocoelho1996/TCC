@@ -6,19 +6,29 @@ class Bubblesort extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 4, 3, 53),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Ação ao clicar no ícone de notificações
+            },
+          ),
+        ],
         title: const Text(
           'NOME APLICATIVO',
           style: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 0, 0, 0),
             fontSize: 14, // Define o tamanho da fonte do título
             fontWeight: FontWeight.normal, // Define o peso da fonte
           ),
         ),
         centerTitle: true, // Centraliza o título
-        backgroundColor: const Color.fromARGB(255, 4, 3, 53),
+        backgroundColor: const Color.fromRGBO(250, 227, 105, 37),
+        // backgroundColor: const Color.fromRGBO(250, 227, 105, 37),
+        // Cor de fundo do AppBar
       ),
       body: ListView(
         children: <Widget>[
@@ -33,7 +43,7 @@ class Bubblesort extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: const Color.fromRGBO(237, 133, 59, 1),
                   ),
                 ),
               ),
@@ -47,7 +57,7 @@ class Bubblesort extends StatelessWidget {
                   '3. Iteração Completa: O processo é repetido para todos os pares da lista, "empurrando" o maior elemento para o final da lista.\n\n'
                   '4. Repetição: A iteração é repetida para o restante da lista, ignorando o último elemento a cada repetição, pois ele já estará ordenado. O processo continua até que não sejam necessárias mais trocas.',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 16,
                   ),
                 ),
@@ -60,15 +70,14 @@ class Bubblesort extends StatelessWidget {
                     Container(
                       width: 215,
                       height: 2, // Espessura da linha
-                      color: const Color.fromARGB(
-                          255, 255, 241, 87), // Cor da linha
+                      color: const Color.fromARGB(255, 0, 0, 0), // Cor da linha
                     ),
                     // Conteúdo do container
                     const SizedBox(height: 15),
                     const Text(
                       'Comportamento do Bubble Sort',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: const Color.fromRGBO(237, 133, 59, 1),
                         fontSize: 18,
                       ),
                     ),
@@ -83,8 +92,8 @@ class Bubblesort extends StatelessWidget {
                 child: Image.asset('assets/images/bubble.gif'),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: const Color.fromARGB(
-                        255, 255, 241, 87), // Cor da linha (borda)
+                    color: const Color.fromRGBO(
+                        250, 227, 105, 37), // Cor da linha (borda)
                     width: 4.0, // Espessura da linha
                   ),
                 ),

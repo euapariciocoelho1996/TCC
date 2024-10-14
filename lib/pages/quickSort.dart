@@ -68,7 +68,7 @@ class Quicksort extends StatelessWidget {
                     const Text(
                       'Comportamento do Quick Sort',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: const Color.fromRGBO(237, 133, 59, 1),
                         fontSize: 18,
                       ),
                     ),

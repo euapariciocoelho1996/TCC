@@ -6,19 +6,29 @@ class Mergesort extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 4, 3, 53),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        foregroundColor: const Color.fromARGB(255, 255, 255, 255),
+        foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.notifications),
+            onPressed: () {
+              // Ação ao clicar no ícone de notificações
+            },
+          ),
+        ],
         title: const Text(
           'NOME APLICATIVO',
           style: TextStyle(
-            color: Colors.white,
+            color: Color.fromARGB(255, 0, 0, 0),
             fontSize: 14, // Define o tamanho da fonte do título
             fontWeight: FontWeight.normal, // Define o peso da fonte
           ),
         ),
         centerTitle: true, // Centraliza o título
-        backgroundColor: const Color.fromARGB(255, 4, 3, 53),
+        backgroundColor: const Color.fromRGBO(250, 227, 105, 37),
+        // backgroundColor: const Color.fromRGBO(250, 227, 105, 37),
+        // Cor de fundo do AppBar
       ),
       body: ListView(
         children: <Widget>[
@@ -33,7 +43,7 @@ class Mergesort extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: const Color.fromRGBO(237, 133, 59, 1),
                   ),
                 ),
               ),
@@ -47,7 +57,7 @@ class Mergesort extends StatelessWidget {
                   '3. Mesclagem: Os elementos das sublistas são comparados e combinados em uma nova lista ordenada.\n\n'
                   '4. Repetição: O processo de fusão continua até que todas as sublistas sejam mescladas em uma única lista ordenada.',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 0, 0, 0),
                     fontSize: 16,
                   ),
                 ),
@@ -60,15 +70,14 @@ class Mergesort extends StatelessWidget {
                     Container(
                       width: 215,
                       height: 2, // Espessura da linha
-                      color: const Color.fromARGB(
-                          255, 255, 241, 87), // Cor da linha
+                      color: const Color.fromARGB(255, 0, 0, 0), // Cor da linha
                     ),
                     // Conteúdo do container
                     const SizedBox(height: 15),
                     const Text(
                       'Comportamento do Merge Sort',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: const Color.fromRGBO(237, 133, 59, 1),
                         fontSize: 18,
                       ),
                     ),
