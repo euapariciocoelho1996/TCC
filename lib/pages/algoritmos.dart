@@ -40,41 +40,6 @@ class Algoritmos extends StatelessWidget {
           Column(
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 40),
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(149, 250, 226, 105),
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromARGB(145, 158, 158, 158),
-                      offset: Offset(
-                        4.0,
-                        4.0,
-                      ),
-                      blurRadius: 10.0,
-                      spreadRadius: 1.0,
-                    ), //BoxShadow
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(0.0, 0.0),
-                      blurRadius: 0.0,
-                      spreadRadius: 0.0,
-                    ), //BoxShadow
-                  ],
-                ),
-                height: 70,
-                width: 390,
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(20.0),
-                child: const Text(
-                  'TIPOS DE ALGORITMOS DE ORDENAÇÃO',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 0, 0, 0),
-                  ),
-                ),
-              ),
-              Container(
                 margin: const EdgeInsets.fromLTRB(0, 30, 0, 30),
                 child: Column(
                   children: [

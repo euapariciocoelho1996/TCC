@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc_flutter/pages/referencias.dart';
 import 'pages/algoritmos.dart';
 
 class Foquenoessencial extends StatelessWidget {
@@ -50,35 +51,44 @@ class Foquenoessencial extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 104,
-            height: 104,
-            decoration: BoxDecoration(
-              color: const Color.fromRGBO(237, 133, 59, 1),
-              borderRadius: BorderRadius.circular(3),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(
-                    4.0,
-                    4.0,
+          InkWell(
+            onTap: () {
+              // Ação quando o Container é pressionado
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => const Referencias()));
+            },
+            child: Container(
+              width: 104,
+              height: 104,
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(237, 133, 59, 1),
+                borderRadius: BorderRadius.circular(3),
+                boxShadow: const [
+                  BoxShadow(
+                    color: Colors.grey,
+                    offset: Offset(
+                      4.0,
+                      4.0,
+                    ),
+                    blurRadius: 4.0,
+                    spreadRadius: 2.0,
+                  ), //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const Center(
+                child: Text(
+                  'Referências',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
                   ),
-                  blurRadius: 4.0,
-                  spreadRadius: 2.0,
-                ), //BoxShadow
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0.0, 0.0),
-                  blurRadius: 0.0,
-                  spreadRadius: 0.0,
-                ), //BoxShadow
-              ],
-            ),
-            child: const Center(
-              child: Text(
-                'Referências',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
                 ),
               ),
             ),
