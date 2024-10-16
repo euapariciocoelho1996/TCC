@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
+import 'package:projeto_tcc_flutter/homeNavigator.dart';
 import 'package:projeto_tcc_flutter/pages/insertion.dart';
 import 'package:projeto_tcc_flutter/pages/mergeSort.dart';
 import 'package:projeto_tcc_flutter/pages/quickSort.dart';
@@ -281,6 +282,7 @@ class Algoritmos extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: const MyFloatingButton(),
     );
   }
 }

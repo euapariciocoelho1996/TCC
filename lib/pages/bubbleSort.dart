@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
+import 'package:projeto_tcc_flutter/homeNavigator.dart';
 
 class Bubblesort extends StatelessWidget {
   const Bubblesort({super.key});
@@ -84,6 +85,7 @@ class Bubblesort extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: const MyFloatingButton(),
     );
   }
 }

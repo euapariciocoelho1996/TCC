@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
+import 'package:projeto_tcc_flutter/homeNavigator.dart';
 
 class Referencias extends StatelessWidget {
   const Referencias({super.key});
@@ -91,6 +92,7 @@ class Referencias extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: const MyFloatingButton(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
+import 'package:projeto_tcc_flutter/homeNavigator.dart';
 
 class Quicksort extends StatelessWidget {
   const Quicksort({super.key});
@@ -84,6 +85,7 @@ class Quicksort extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: const MyFloatingButton(),
     );
   }
 }
