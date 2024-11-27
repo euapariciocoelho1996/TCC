@@ -22,18 +22,10 @@ class Foquenoessencial extends StatelessWidget {
             width: 104,
             height: 104,
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(237, 133, 59, 1),
+              color: const Color.fromRGBO(252, 131, 51, 1),
               borderRadius: BorderRadius.circular(3),
               boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(
-                    4.0,
-                    4.0,
-                  ),
-                  blurRadius: 4.0,
-                  spreadRadius: 2.0,
-                ), //BoxShadow
+                //BoxShadow
                 BoxShadow(
                   color: Colors.white,
                   offset: Offset(0.0, 0.0),
@@ -47,6 +39,7 @@ class Foquenoessencial extends StatelessWidget {
                 'Praticar',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
+                  fontSize: 15,
                 ),
               ),
             ),
@@ -63,18 +56,10 @@ class Foquenoessencial extends StatelessWidget {
               width: 104,
               height: 104,
               decoration: BoxDecoration(
-                color: const Color.fromRGBO(237, 133, 59, 1),
+                color: const Color.fromRGBO(252, 131, 51, 1),
                 borderRadius: BorderRadius.circular(3),
                 boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(
-                      4.0,
-                      4.0,
-                    ),
-                    blurRadius: 4.0,
-                    spreadRadius: 2.0,
-                  ), //BoxShadow
+                  //BoxShadow
                   BoxShadow(
                     color: Colors.white,
                     offset: Offset(0.0, 0.0),
@@ -88,6 +73,7 @@ class Foquenoessencial extends StatelessWidget {
                   'Referências',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
               ),
@@ -106,18 +92,10 @@ class Foquenoessencial extends StatelessWidget {
               width: 104,
               height: 104,
               decoration: BoxDecoration(
-                color: const Color.fromRGBO(237, 133, 59, 1),
+                color: const Color.fromRGBO(252, 131, 51, 1),
                 borderRadius: BorderRadius.circular(3),
                 boxShadow: const [
-                  BoxShadow(
-                    color: Colors.grey,
-                    offset: Offset(
-                      4.0,
-                      4.0,
-                    ),
-                    blurRadius: 4.0,
-                    spreadRadius: 2.0,
-                  ), //BoxShadow
+                  //BoxShadow
                   BoxShadow(
                     color: Colors.white,
                     offset: Offset(0.0, 0.0),
@@ -131,6 +109,7 @@ class Foquenoessencial extends StatelessWidget {
                   'Algoritmos',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
+                    fontSize: 15,
                   ),
                 ),
               ),

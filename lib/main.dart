@@ -26,26 +26,54 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar('Nome Aplicativo'), // appbar
       drawer: Drawer(
-        backgroundColor: const Color.fromRGBO(250, 227, 105, 1),
-        child: Container(
-          margin: const EdgeInsets.only(top: 50.0),
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: const <Widget>[
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Página Inicial'),
+        child: Stack(
+          children: [
+            // Fundo do Drawer
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/1.png"), // Imagem de fundo
+                  fit: BoxFit.cover, // Ajusta a imagem ao tamanho do Drawer
+                ),
               ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Configurações'),
+            ),
+            // Conteúdo do Drawer
+            Container(
+              margin: const EdgeInsets.only(top: 50.0),
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: const <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.home, color: Colors.white),
+                    title: Text(
+                      'Página Inicial',
+                      style: TextStyle(
+                        color: Colors.white, // Cor do texto
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.settings, color: Colors.white),
+                    title: Text(
+                      'Configurações',
+                      style: TextStyle(
+                        color: Colors.white, // Cor do texto
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.people, color: Colors.white),
+                    title: Text(
+                      'Sobre',
+                      style: TextStyle(
+                        color: Colors.white, // Cor do texto
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              ListTile(
-                leading: Icon(Icons.people),
-                title: Text('Sobre'),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       body: const Bodyprincipal(),

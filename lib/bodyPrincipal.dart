@@ -9,7 +9,12 @@ class Bodyprincipal extends StatelessWidget {
     return ListView(
       children: <Widget>[
         Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/1.png"), // Caminho da imagem
+              fit: BoxFit.cover, // Ajusta a imagem ao tamanho da tela
+            ),
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start, // Alinhamento vertical
             crossAxisAlignment:
@@ -38,7 +43,7 @@ class Bodyprincipal extends StatelessWidget {
                         Text(
                           ' que bom ter você aqui!',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0),
+                            color: Color.fromARGB(255, 255, 255, 255),
                             fontSize: 17,
                           ),
                         ),
@@ -64,7 +69,7 @@ class Bodyprincipal extends StatelessWidget {
                     Text(
                       'Aproveite ao máximo esta experiência!',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 15,
                       ),
                     ),
@@ -82,10 +87,10 @@ class Bodyprincipal extends StatelessWidget {
                     BoxShadow(
                       color: Colors.grey,
                       offset: Offset(
-                        4.0,
-                        4.0,
+                        2.0,
+                        2.0,
                       ),
-                      blurRadius: 4.0,
+                      blurRadius: 3.0,
                       spreadRadius: 2.0,
                     ), //BoxShadow
                     BoxShadow(
@@ -132,7 +137,7 @@ class Bodyprincipal extends StatelessWidget {
                     child: const Text(
                       'ESTE APLICATIVO SERVE PARA MIM?\n\n',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -149,7 +154,8 @@ class Bodyprincipal extends StatelessWidget {
                       child: Text(
                         'Este aplicativo é voltado para estudantes interessados em tópicos relacionados a algoritmos de ordenação, oferecendo conteúdos interativos, exemplos práticos e exercícios que ajudam a consolidar o aprendizado de maneira dinâmica e envolvente.',
                         style: TextStyle(
-                            color: Color.fromARGB(255, 0, 0, 0), fontSize: 16),
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 16),
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -167,12 +173,12 @@ class Bodyprincipal extends StatelessWidget {
                     const Text(
                       'FOQUE NO ESSENCIAL',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 20),
+
                     Container(
                       width: 215,
                       height: 2, // Espessura da linha
