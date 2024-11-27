@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/homeNavigator.dart';
 import 'package:projeto_tcc_flutter/pages/insertion.dart';
-import 'package:projeto_tcc_flutter/pages/mergeSort.dart';
+import 'package:projeto_tcc_flutter/pages/shell.dart';
 import 'package:projeto_tcc_flutter/pages/quickSort.dart';
 import './selectionSort.dart';
 import './bubbleSort.dart';
@@ -36,14 +36,21 @@ class Algoritmos extends StatelessWidget {
                     'ALGORITMOS',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 18,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 15),
                   Container(
-                    width: 150,
-                    height: 2, // Espessura da linha
-                    color: const Color.fromARGB(255, 0, 0, 0), // Cor da linha
+                    child: Center(
+                      child: const Text(
+                        'Explore e compreenda como cada algoritmo funciona',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -58,6 +65,7 @@ class Algoritmos extends StatelessWidget {
                     number: '1',
                     title: 'Selection Sort',
                     description: '',
+                    backgroundColor: const Color.fromRGBO(125, 217, 194, 1),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -70,6 +78,7 @@ class Algoritmos extends StatelessWidget {
                     number: '2',
                     title: 'Bubble Sort',
                     description: '',
+                    backgroundColor: const Color.fromRGBO(255, 125, 151, 1),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -82,6 +91,7 @@ class Algoritmos extends StatelessWidget {
                     number: '3',
                     title: 'Insertion Sort',
                     description: '.',
+                    backgroundColor: const Color.fromRGBO(255, 238, 128, 1),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -92,20 +102,23 @@ class Algoritmos extends StatelessWidget {
                   ),
                   _buildTimelineItem(
                     number: '4',
-                    title: 'Merge Sort',
+                    title: 'Shell Sort',
                     description: '',
+                    backgroundColor: const Color.fromRGBO(128, 182, 255, 1),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const Mergesort()),
+                            builder: (context) => const Shellsort()),
                       );
                     },
                   ),
+                  // esse aqui, já está chamando o ponto 2
                   _buildTimelineItem(
                     number: '5',
                     title: 'Quick Sort',
                     description: '',
+                    backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                     onPressed: () {
                       Navigator.push(
                         context,
@@ -124,11 +137,13 @@ class Algoritmos extends StatelessWidget {
     );
   }
 
+// ponto 2
   Widget _buildTimelineItem({
     required String number,
     required String title,
     required String description,
     required VoidCallback onPressed,
+    required Color backgroundColor,
   }) {
     return GestureDetector(
       onTap: onPressed,
@@ -142,14 +157,14 @@ class Algoritmos extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   color: Colors.black,
-                  border: Border.all(color: Colors.orange, width: 2),
+                  border: Border.all(color: backgroundColor, width: 2),
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(
                   child: Text(
                     number,
-                    style: const TextStyle(
-                      color: Colors.orange,
+                    style: TextStyle(
+                      color: backgroundColor,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
@@ -160,7 +175,7 @@ class Algoritmos extends StatelessWidget {
                 Container(
                   width: 2,
                   height: 60,
-                  color: Colors.orange,
+                  color: backgroundColor,
                 ),
             ],
           ),

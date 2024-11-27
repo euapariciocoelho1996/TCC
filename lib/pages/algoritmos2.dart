@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/pages/bubbleSort.dart';
 import 'package:projeto_tcc_flutter/pages/insertion.dart';
-import 'package:projeto_tcc_flutter/pages/mergeSort.dart';
+import 'package:projeto_tcc_flutter/pages/shell.dart';
 import 'package:projeto_tcc_flutter/pages/quickSort.dart';
 import 'package:projeto_tcc_flutter/pages/selectionSort.dart';
 
@@ -78,7 +78,7 @@ class Timeline extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Mergesort()));
+                      builder: (BuildContext context) => const Shellsort()));
             },
           ),
         ],
