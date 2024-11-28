@@ -10,7 +10,6 @@ import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
 
-
 class QuizScreenInsertion1 extends StatefulWidget {
   const QuizScreenInsertion1({super.key});
 
@@ -24,7 +23,7 @@ class _QuizScreenInsertion1State extends State<QuizScreenInsertion1> {
     {
       'questionText':
           'Qual é o método principal utilizado pelo Insertion Sort para ordenar os elementos?',
-      'image': 'assets/bubble/i1.png',
+      'image': 'assets/images/i1.png',
       'answers': [
         {'text': 'A) Divisão e conquista', 'isCorrect': false},
         {'text': 'B) Comparação e inserção', 'isCorrect': true},
@@ -37,7 +36,7 @@ class _QuizScreenInsertion1State extends State<QuizScreenInsertion1> {
     {
       'questionText':
           'Para qual tipo de lista o Insertion Sort é mais eficiente?',
-      'image': 'assets/bubble/i2.png',
+      'image': 'assets/images/i2.png',
       'answers': [
         {'text': 'A) Listas aleatórias', 'isCorrect': false},
         {
@@ -53,7 +52,7 @@ class _QuizScreenInsertion1State extends State<QuizScreenInsertion1> {
     {
       'questionText':
           'O Insertion Sort é um algoritmo estável. O que isso significa?',
-      'image': 'assets/bubble/i3.png',
+      'image': 'assets/images/i3.png',
       'answers': [
         {
           'text': 'A) Os elementos são ordenados em ordem decrescente.',

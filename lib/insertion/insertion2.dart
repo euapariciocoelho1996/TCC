@@ -23,7 +23,7 @@ class _QuizScreenInsertion2State extends State<QuizScreenInsertion2> {
     {
       'questionText':
           'Qual é o objetivo da variável "chave" no Insertion Sort?',
-      'image': 'assets/bubble/insertionCodigo.png',
+      'image': 'assets/images/insertionCodigo.png',
       'answers': [
         {'text': 'A) Armazenar o valor máximo da lista', 'isCorrect': false},
         {
@@ -42,7 +42,7 @@ class _QuizScreenInsertion2State extends State<QuizScreenInsertion2> {
     {
       'questionText':
           'O que a condição "j >= 0 && arr[j] > chave" verifica no loop?',
-      'image': 'assets/bubble/insertionCodigo.png',
+      'image': 'assets/images/insertionCodigo.png',
       'answers': [
         {
           'text': 'A) Se o índice j é válido e se o elemento é menor que chave',
@@ -67,7 +67,7 @@ class _QuizScreenInsertion2State extends State<QuizScreenInsertion2> {
     },
     {
       'questionText': 'O que acontece na linha "arr[j + 1] = chave;"?',
-      'image': 'assets/bubble/insertionCodigo.png',
+      'image': 'assets/images/insertionCodigo.png',
       'answers': [
         {'text': 'A) O elemento chave é removido da lista', 'isCorrect': false},
         {
@@ -86,7 +86,7 @@ class _QuizScreenInsertion2State extends State<QuizScreenInsertion2> {
     {
       'questionText':
           'Qual é o propósito do loop externo "for (int i = 1; i < n; i++)"?',
-      'image': 'assets/bubble/insertionCodigo.png',
+      'image': 'assets/images/insertionCodigo.png',
       'answers': [
         {
           'text': 'A) Para percorrer todos os elementos da lista',

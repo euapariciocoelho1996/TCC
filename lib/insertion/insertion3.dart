@@ -23,7 +23,7 @@ class _QuizScreenInsertion3State extends State<QuizScreenInsertion3> {
   final List<Map<String, Object>> _perguntas = [
   {
     'questionText': 'Qual é a complexidade de tempo do Insertion Sort no melhor caso?',
-    'image': 'assets/bubble/i2.png',
+    'image': 'assets/images/i2.png',
     'answers': [
       {'text': 'A) O(n)', 'isCorrect': true},
       {'text': 'B) O(n log n)', 'isCorrect': false},
@@ -35,7 +35,7 @@ class _QuizScreenInsertion3State extends State<QuizScreenInsertion3> {
   },
   {
     'questionText': 'Qual é a complexidade de tempo do Insertion Sort no pior caso?',
-    'image': 'assets/bubble/i3.png',
+    'image': 'assets/images/i3.png',
     'answers': [
       {'text': 'A) O(n)', 'isCorrect': false},
       {'text': 'B) O(n log n)', 'isCorrect': false},
@@ -47,7 +47,7 @@ class _QuizScreenInsertion3State extends State<QuizScreenInsertion3> {
   },
   {
     'questionText': 'Qual é a complexidade de tempo do Insertion Sort no caso médio?',
-    'image': 'assets/bubble/i1.png',
+    'image': 'assets/images/i1.png',
     'answers': [
       {'text': 'A) O(n)', 'isCorrect': false},
       {'text': 'B) O(n log n)', 'isCorrect': false},
@@ -59,7 +59,7 @@ class _QuizScreenInsertion3State extends State<QuizScreenInsertion3> {
   },
   {
     'questionText': 'Quando o Insertion Sort é mais eficiente?',
-    'image': 'assets/bubble/i2.png',
+    'image': 'assets/images/i2.png',
     'answers': [
       {'text': 'A) Quando a lista está em ordem aleatória', 'isCorrect': false},
       {'text': 'B) Quando a lista já está ordenada', 'isCorrect': true},

@@ -21,18 +21,14 @@ class HomeScreenSecundario extends StatelessWidget {
       backgroundColor: Colors.blueGrey,
       body: Stack(
         children: [
-          // Plano de fundo
-          /*Positioned.fill(
-            child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                      'assets/bubble/fundo1.png'), // Referência à imagem local
-                  fit: BoxFit.cover,
-                ),
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/1.png"), // Imagem de fundo
+                fit: BoxFit.cover, // Ajusta a imagem ao tamanho do Drawer
               ),
             ),
-          ),*/
+          ),
           // ListView com conteúdo
           ListView(
             padding: const EdgeInsets.all(16.0), // Espaçamento geral

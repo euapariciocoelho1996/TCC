@@ -25,7 +25,7 @@ class _QuizScreenBubble1State extends State<QuizScreenBubble1> {
   final List<Map<String, Object>> _perguntas = [
     {
       'questionText': 'Quando o Bubble Sort pode ser mais eficiente?',
-      'image': 'assets/bubble/b1.png',
+      'image': 'assets/images/b1.png',
       'answers': [
         {'text': 'A) Quando a lista é longa e aleatória', 'isCorrect': false},
         {'text': 'B) Quando a lista já está quase ordenada', 'isCorrect': true},
@@ -40,7 +40,7 @@ class _QuizScreenBubble1State extends State<QuizScreenBubble1> {
     },
     {
       'questionText': 'Como o Bubble Sort compara elementos?',
-      'image': 'assets/bubble/b2.png',
+      'image': 'assets/images/b2.png',
       'answers': [
         {
           'text': 'A) Compara pares adjacentes e os troca, se necessário',
@@ -58,7 +58,7 @@ class _QuizScreenBubble1State extends State<QuizScreenBubble1> {
     },
     {
       'questionText': 'Qual é a principal característica do Bubble Sort?',
-      'image': 'assets/bubble/b3.png',
+      'image': 'assets/images/b3.png',
       'answers': [
         {'text': 'A) É um algoritmo de busca binária', 'isCorrect': false},
         {

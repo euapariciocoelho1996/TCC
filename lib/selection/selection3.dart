@@ -10,7 +10,6 @@ import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
 
-
 class QuizScreenSelection3 extends StatefulWidget {
   const QuizScreenSelection3({super.key});
 
@@ -24,7 +23,7 @@ class _QuizScreenSelection3State extends State<QuizScreenSelection3> {
     {
       'questionText':
           'O que diferencia o melhor e o pior caso no Selection Sort?',
-      'image': 'assets/bubble/s2.png',
+      'image': 'assets/images/s2.png',
       'answers': [
         {'text': 'A) O número de trocas realizadas', 'isCorrect': false},
         {
@@ -44,7 +43,7 @@ class _QuizScreenSelection3State extends State<QuizScreenSelection3> {
     {
       'questionText':
           'Por que o caso médio do Selection Sort é considerado ineficiente?',
-      'image': 'assets/bubble/s1.png',
+      'image': 'assets/images/s1.png',
       'answers': [
         {
           'text': 'A) Ele faz apenas algumas comparações extras',
@@ -66,7 +65,7 @@ class _QuizScreenSelection3State extends State<QuizScreenSelection3> {
     {
       'questionText':
           'Qual cenário não traz nenhuma vantagem para o Selection Sort?',
-      'image': 'assets/bubble/s3.png',
+      'image': 'assets/images/s3.png',
       'answers': [
         {'text': 'A) Lista já ordenada', 'isCorrect': false},
         {'text': 'B) Lista com todos os elementos iguais', 'isCorrect': false},

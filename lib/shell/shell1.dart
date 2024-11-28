@@ -22,7 +22,7 @@ class _QuizScreenShell1State extends State<QuizScreenShell1> {
   final List<Map<String, Object>> _perguntas = [
     {
       'questionText': 'Qual é a principal característica do algoritmo Shell Sort?',
-      'image': 'assets/bubble/sh1.png',
+      'image': 'assets/images/sh1.png',
       'answers': [
         {'text': 'A) Utiliza comparação direta de elementos adjacentes', 'isCorrect': false},
         {'text': 'B) Realiza trocas de elementos em posições distantes inicialmente', 'isCorrect': true},

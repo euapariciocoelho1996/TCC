@@ -10,7 +10,6 @@ import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
 
-
 class QuizScreenQuick2 extends StatefulWidget {
   const QuizScreenQuick2({super.key});
 
@@ -23,7 +22,7 @@ class _QuizScreenQuick2State extends State<QuizScreenQuick2> {
   final List<Map<String, Object>> _perguntas = [
     {
       'questionText': 'O que o operador * faz em *a e *b?',
-      'image': 'assets/bubble/pt1.png',
+      'image': 'assets/images/pt1.png',
       'answers': [
         {'text': 'A) Multiplica os valores de a e b', 'isCorrect': false},
         {'text': 'B) Substitui o valor de a por b', 'isCorrect': false},
@@ -43,7 +42,7 @@ class _QuizScreenQuick2State extends State<QuizScreenQuick2> {
     {
       'questionText':
           'Qual é o papel da condição if (arr[j] <= pivo) dentro do for?',
-      'image': 'assets/bubble/pt1-1.png',
+      'image': 'assets/images/pt1-1.png',
       'answers': [
         {
           'text': 'A) Verificar se o valor atual de arr[j] é maior que o pivô',
@@ -66,7 +65,7 @@ class _QuizScreenQuick2State extends State<QuizScreenQuick2> {
     {
       'questionText':
           'Qual é o objetivo das chamadas quicksort(arr, inicio, pi - 1); e quicksort(arr, pi + 1, alto);?',
-      'image': 'assets/bubble/pt2.png',
+      'image': 'assets/images/pt2.png',
       'answers': [
         {
           'text': 'A) Ordenar apenas a parte esquerda do arr',

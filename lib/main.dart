@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/bodyPrincipal.dart';
+import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:provider/provider.dart';
 import './foqueNoEssencial.dart';
 
@@ -20,6 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: '/',
+      routes: {
+        '/main': (context) => const HomeScreenSecundario(),
+      },
       home: const HomeScreenLin1(),
     );
   }

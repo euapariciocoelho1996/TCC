@@ -24,7 +24,7 @@ class _QuizScreenQuick3State extends State<QuizScreenQuick3> {
     {
       'questionText':
           'Qual é a complexidade de tempo do QuickSort no melhor caso?',
-      'image': 'assets/bubble/pt2.png',
+      'image': 'assets/images/pt2.png',
       'answers': [
         {'text': 'A) O(n)', 'isCorrect': false},
         {'text': 'B) O(nlogn)', 'isCorrect': true},
@@ -37,7 +37,7 @@ class _QuizScreenQuick3State extends State<QuizScreenQuick3> {
     {
       'questionText':
           'Qual técnica pode ser usada para evitar o pior caso de O(n²) no QuickSort?',
-      'image': 'assets/bubble/pt2.png',
+      'image': 'assets/images/pt2.png',
       'answers': [
         {
           'text': 'A) Escolher sempre o primeiro elemento como pivô',
@@ -63,7 +63,7 @@ class _QuizScreenQuick3State extends State<QuizScreenQuick3> {
     {
       'questionText':
           'Por que o QuickSort é mais eficiente que o Selection Sort na maioria dos casos?',
-      'image': 'assets/bubble/pt2.png',
+      'image': 'assets/images/pt2.png',
       'answers': [
         {
           'text': 'A) Porque o QuickSort não usa chamadas recursivas',

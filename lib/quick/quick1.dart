@@ -24,7 +24,7 @@ class _QuizScreenQuick1State extends State<QuizScreenQuick1> {
     {
       'questionText':
           'Qual é o elemento escolhido para dividir a lista no Quicksort?',
-      'image': 'assets/bubble/q1.png',
+      'image': 'assets/images/q1.png',
       'answers': [
         {'text': 'A) Mediana da lista', 'isCorrect': false},
         {'text': 'B) Menor elemento da lista', 'isCorrect': false},
@@ -36,7 +36,7 @@ class _QuizScreenQuick1State extends State<QuizScreenQuick1> {
     },
     {
       'questionText': 'Qual é a principal estratégia usada pelo Quicksort?',
-      'image': 'assets/bubble/q2.png',
+      'image': 'assets/images/q2.png',
       'answers': [
         {'text': 'A) Dividir e conquistar', 'isCorrect': true},
         {'text': 'B) Programação dinâmica', 'isCorrect': false},
@@ -48,7 +48,7 @@ class _QuizScreenQuick1State extends State<QuizScreenQuick1> {
     },
     {
       'questionText': 'Qual das alternativas é uma vantagem do Quicksort?',
-      'image': 'assets/bubble/q3.png',
+      'image': 'assets/images/q3.png',
       'answers': [
         {'text': 'A) Sempre ocupa pouca memória', 'isCorrect': false},
         {'text': 'B) É estável em qualquer implementação', 'isCorrect': false},

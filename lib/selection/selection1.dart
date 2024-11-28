@@ -24,7 +24,7 @@ class _QuizScreenSelection1State extends State<QuizScreenSelection1> {
     {
       'questionText':
           'Como o Selection Sort encontra o elemento correto para cada posição?',
-      'image': 'assets/bubble/s1.png',
+      'image': 'assets/images/s1.png',
       'answers': [
         {'text': 'A) Através de partições recursivas', 'isCorrect': false},
         {
@@ -46,7 +46,7 @@ class _QuizScreenSelection1State extends State<QuizScreenSelection1> {
     },
     {
       'questionText': 'Quando o Selection Sort é mais eficiente?',
-      'image': 'assets/bubble/s2.png',
+      'image': 'assets/images/s2.png',
       'answers': [
         {'text': 'A) Para listas muito grandes', 'isCorrect': false},
         {'text': 'B) Quando a lista é quase ordenada', 'isCorrect': false},
@@ -61,7 +61,7 @@ class _QuizScreenSelection1State extends State<QuizScreenSelection1> {
     },
     {
       'questionText': 'Qual é a principal característica do Selection Sort?',
-      'image': 'assets/bubble/s2.png',
+      'image': 'assets/images/s2.png',
       'answers': [
         {
           'text':

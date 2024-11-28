@@ -24,7 +24,7 @@ class _QuizScreenShell2State extends State<QuizScreenShell2> {
     {
       'questionText':
           'O que a variável `gap` controla no algoritmo Shell Sort?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text': 'A) A quantidade de elementos a serem comparados de uma vez',
@@ -46,7 +46,7 @@ class _QuizScreenShell2State extends State<QuizScreenShell2> {
     {
       'questionText':
           'Qual é o propósito do laço `while (j >= gap && arr[j - gap] > temp)` no código?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text':
@@ -75,7 +75,7 @@ class _QuizScreenShell2State extends State<QuizScreenShell2> {
     {
       'questionText':
           'Qual é o comportamento do algoritmo quando o valor de `gap` se torna igual a 1?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text': 'A) O algoritmo termina e o vetor já está ordenado',

@@ -25,7 +25,7 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
       'questionText':
           'Para que servem as variáveis int i, j, temp; no algoritmo Bubble Sort?',
       'image':
-          'assets/bubble/b-cod.png', // Substitua pelo caminho da sua imagem, se necessário
+          'assets/images/b-cod.png', // Substitua pelo caminho da sua imagem, se necessário
       'answers': [
         {
           'text':
@@ -53,7 +53,7 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
     },
     {
       'questionText': 'Explique a linha 8 e 9',
-      'image': 'assets/bubble/b-cod.png',
+      'image': 'assets/images/b-cod.png',
       'answers': [
         {
           'text': 'A) arr[j] não passa a ter o valor que estava em arr[j+1]',
@@ -77,7 +77,7 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
     {
       'questionText':
           'O que acontece se o primeiro laço for removido do Bubble Sort?',
-      'image': 'assets/bubble/b-cod.png',
+      'image': 'assets/images/b-cod.png',
       'answers': [
         {'text': 'A) A troca de elementos no array', 'isCorrect': false},
         {

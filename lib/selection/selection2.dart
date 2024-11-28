@@ -24,7 +24,7 @@ class _QuizScreenSelection2State extends State<QuizScreenSelection2> {
     {
       'questionText':
           'Explique as linhas 5 e 6 (if (arr[j] < arr[minIndex]) minIndex = j;)',
-      'image': 'assets/bubble/s-cod.png',
+      'image': 'assets/images/s-cod.png',
       'answers': [
         {
           'text':
@@ -52,7 +52,7 @@ class _QuizScreenSelection2State extends State<QuizScreenSelection2> {
     {
       'questionText':
           'O que acontece ao final de cada iteração do laço externo (for) na linha 2?',
-      'image': 'assets/bubble/s-cod.png',
+      'image': 'assets/images/s-cod.png',
       'answers': [
         {
           'text': 'A) O maior elemento é movido para o final do array',
@@ -77,7 +77,7 @@ class _QuizScreenSelection2State extends State<QuizScreenSelection2> {
     {
       'questionText':
           'O que acontece se todos os elementos já estiverem ordenados no início?',
-      'image': 'assets/bubble/s3.png',
+      'image': 'assets/images/s3.png',
       'answers': [
         {'text': 'A) O algoritmo para imediatamente', 'isCorrect': false},
         {

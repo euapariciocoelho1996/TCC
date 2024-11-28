@@ -10,7 +10,6 @@ import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
 
-
 class QuizScreenBubble3 extends StatefulWidget {
   const QuizScreenBubble3({super.key});
 
@@ -25,7 +24,7 @@ class _QuizScreenBubble3State extends State<QuizScreenBubble3> {
       'questionText':
           'Como o algoritmo Bubble Sort detecta que a lista está ordenada?',
       'image':
-          'assets/bubble/b2.png', // Substitua pelo caminho da sua imagem, se necessário
+          'assets/images/b2.png', // Substitua pelo caminho da sua imagem, se necessário
       'answers': [
         {
           'text': 'A) Ao encontrar o elemento mediano',
@@ -58,7 +57,7 @@ class _QuizScreenBubble3State extends State<QuizScreenBubble3> {
     {
       'questionText': 'Quando o Bubble Sort pode ser eficiente?',
       'image':
-          'assets/bubble/b3.png', // Substitua pelo caminho da sua imagem, se necessário
+          'assets/images/b3.png', // Substitua pelo caminho da sua imagem, se necessário
       'answers': [
         {
           'text': 'A) Com grandes conjuntos de dados desordenados',
@@ -92,7 +91,7 @@ class _QuizScreenBubble3State extends State<QuizScreenBubble3> {
       'questionText':
           'O que acontece se o primeiro laço for removido do Bubble Sort?',
       'image':
-          'assets/bubble/b-cod.png', // Substitua pelo caminho da sua imagem, se necessário
+          'assets/images/b-cod.png', // Substitua pelo caminho da sua imagem, se necessário
       'answers': [
         {
           'text': 'A) A troca de elementos no array',

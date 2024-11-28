@@ -24,7 +24,7 @@ class _QuizScreenShell3State extends State<QuizScreenShell3> {
     {
       'questionText':
           'Qual é a função do primeiro laço `for (int gap = n / 2; gap > 0; gap /= 2)` no Shell Sort?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text': 'A) Controla o número de iterações no algoritmo',
@@ -49,7 +49,7 @@ class _QuizScreenShell3State extends State<QuizScreenShell3> {
     {
       'questionText':
           'Qual é a finalidade da linha `int temp = arr[i];` dentro do segundo laço `for`?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text':
@@ -76,7 +76,7 @@ class _QuizScreenShell3State extends State<QuizScreenShell3> {
     {
       'questionText':
           'O que acontece dentro do laço `while (j >= gap && arr[j - gap] > temp)` no código?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text':
@@ -103,7 +103,7 @@ class _QuizScreenShell3State extends State<QuizScreenShell3> {
     {
       'questionText':
           'O que acontece ao final de cada iteração do laço `for (int i = gap; i < n; i++)`?',
-      'image': 'assets/bubble/shell-cod.png',
+      'image': 'assets/images/shell-cod.png',
       'answers': [
         {
           'text':
