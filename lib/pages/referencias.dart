@@ -2,8 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/pages/animacao-ref.dart';
 import 'custom_card.dart'; // Importa o arquivo do widget reutilizável
 
-class Referencias extends StatelessWidget {
+class Referencias extends StatefulWidget {
   const Referencias({super.key});
+
+  @override
+  State<Referencias> createState() => _ReferenciasState();
+}
+
+class _ReferenciasState extends State<Referencias>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0.0, 1.0), // Começa fora da tela (abaixo)
+      end: Offset.zero,              // Finaliza na posição original
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _controller.forward(); // Inicia a animação
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose(); // Libera os recursos do controlador
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +48,7 @@ class Referencias extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.black,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.white, // Cor dos ícones
         ),
       ),
@@ -25,10 +59,11 @@ class Referencias extends StatelessWidget {
             fit: BoxFit.cover, // Ajusta a imagem ao tamanho do Drawer
           ),
         ),
-        child: ListView(
-          children: [
-            Container(
-              child: Column(
+        child: SlideTransition(
+          position: _slideAnimation, // Aplica a animação ao container principal
+          child: ListView(
+            children: [
+              Column(
                 children: [
                   // Título principal
                   Container(
@@ -37,9 +72,10 @@ class Referencias extends StatelessWidget {
                       child: Text(
                         'Livros recomendados!!',
                         style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
@@ -82,8 +118,8 @@ class Referencias extends StatelessWidget {
                   ),
                 ],
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

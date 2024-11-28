@@ -1,8 +1,48 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/foqueNoEssencial.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class Bodyprincipal extends StatelessWidget {
+class Bodyprincipal extends StatefulWidget {
   const Bodyprincipal({super.key});
+
+  @override
+  State<Bodyprincipal> createState() => _BodyprincipalState();
+}
+
+class _BodyprincipalState extends State<Bodyprincipal> {
+  late PageController _pageController;
+  int _currentPage = 0;
+  late Timer _timer;
+
+  final List<String> messages = [
+    "Bem-vindo ao nosso aplicativo!",
+    "Aprenda algo novo todos os dias.",
+    "Explore diferentes algoritmos de ordenação com facilidade.",
+    "Melhore suas habilidades de programação.",
+    "Obrigado por usar nosso aplicativo!",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+
+    // Configura o timer para alternar as mensagens
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_currentPage < messages.length - 1) {
+        _currentPage++;
+      } else {
+        _currentPage = 0; // Volta ao início
+      }
+      _pageController.animateToPage(
+        _currentPage,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,59 +116,55 @@ class Bodyprincipal extends StatelessWidget {
                   ],
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.all(20.0),
-                width: double.infinity, // Ocupa 100% da largura
-                height: 181,
-                decoration: BoxDecoration(
-                  color: const Color.fromRGBO(250, 227, 105, 1),
-                  borderRadius: BorderRadius.circular(12),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(
-                        2.0,
-                        2.0,
-                      ),
-                      blurRadius: 3.0,
-                      spreadRadius: 2.0,
-                    ), //BoxShadow
-                    BoxShadow(
-                      color: Colors.white,
-                      offset: Offset(0.0, 0.0),
-                      blurRadius: 0.0,
-                      spreadRadius: 0.0,
-                    ), //BoxShadow
-                  ],
-                ),
 
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: 180,
-                      height: 200,
-                      child: Image.asset('assets/images/BLOCO.png'),
+                      height: 185, // Altura do container
+                      width: 385,
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(246, 224, 73, 1),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: PageView.builder(
+                        controller: _pageController,
+                        itemCount: messages.length,
+                        itemBuilder: (context, index) {
+                          return Center(
+                            child: Text(
+                              messages[index],
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
                     ),
-                    Container(
-                      width: 180,
-                      height: 140,
-                      margin: const EdgeInsets.only(right: 10),
-                      child: const Center(
-                        child: Text(
-                          'Para garantir a melhor jornada, tenha uma base sólida em algoritmos!',
-                          style: TextStyle(
-                            fontWeight:
-                                FontWeight.bold, // Define o texto como negrito
-                            fontSize:
-                                16, // Você pode ajustar o tamanho da fonte
-                          ),
-                        ),
+                    const SizedBox(
+                        height: 20), // Espaço entre o slider e os pontos
+                    // Pontinhos para indicar o slide atual
+                    SmoothPageIndicator(
+                      controller: _pageController,
+                      count: messages.length,
+                      effect: const ExpandingDotsEffect(
+                        dotHeight: 8,
+                        dotWidth: 8,
+                        expansionFactor: 4,
+                        spacing: 16,
+                        dotColor: Colors.grey,
+                        activeDotColor: Colors.white,
                       ),
                     ),
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
               Column(
                 children: [
                   Container(

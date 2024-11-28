@@ -1,81 +1,103 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+import 'dart:async';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'; // Importar o pacote
 
-void main() => runApp(MyApp());
+class AutoSlideMessages extends StatefulWidget {
+  const AutoSlideMessages({super.key});
 
-class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AnimatedEffectsDemo(),
-    );
+  _AutoSlideMessagesState createState() => _AutoSlideMessagesState();
+}
+
+class _AutoSlideMessagesState extends State<AutoSlideMessages> {
+  late PageController _pageController;
+  int _currentPage = 0;
+  late Timer _timer;
+
+  final List<String> messages = [
+    "Bem-vindo ao nosso aplicativo!",
+    "Aprenda algo novo todos os dias.",
+    "Explore diferentes algoritmos de ordenação com facilidade.",
+    "Melhore suas habilidades de programação.",
+    "Obrigado por usar nosso aplicativo!",
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0);
+
+    // Configura o timer para alternar as mensagens
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_currentPage < messages.length - 1) {
+        _currentPage++;
+      } else {
+        _currentPage = 0; // Volta ao início
+      }
+      _pageController.animateToPage(
+        _currentPage,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    });
   }
-}
 
-class AnimatedEffectsDemo extends StatefulWidget {
   @override
-  _AnimatedEffectsDemoState createState() => _AnimatedEffectsDemoState();
-}
-
-class _AnimatedEffectsDemoState extends State<AnimatedEffectsDemo> {
-  bool _isAnimated = false;
-  bool _scaleEffect = false;
-  bool _slideEffect = false;
-  bool _rotateEffect = false;
-  bool _fadeEffect = false;
-  bool _containerEffect = false;
+  void dispose() {
+    _timer.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter Animation Effects')),
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Fade In Effect
-            AnimatedOpacity(
-              opacity: _fadeEffect ? 1.0 : 0.0,
-              duration: Duration(seconds: 2),
-              child: AnimatedScale(
-                scale: _scaleEffect ? 1.5 : 1.0,
-                duration: Duration(seconds: 2),
-                child: AnimatedSlide(
-                  offset: _slideEffect ? Offset(0, 0) : Offset(1, 0),
-                  duration: Duration(seconds: 2),
-                  child: AnimatedRotation(
-                    turns: _rotateEffect ? 1 : 0,
-                    duration: Duration(seconds: 2),
-                    child: AnimatedContainer(
-                      duration: Duration(seconds: 2),
-                      height: _containerEffect ? 200 : 100,
-                      width: _containerEffect ? 200 : 100,
-                      color: _containerEffect ? Colors.blue : Colors.red,
-                      child: Center(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _fadeEffect = true;
-                              _scaleEffect = true;
-                              _slideEffect = true;
-                              _rotateEffect = true;
-                              _containerEffect = true;
-                            });
-                          },
-                          child: Text(
-                            'Tap to Animate',
-                            style: TextStyle(fontSize: 24, color: Colors.white),
-                          ),
-                        ),
+            Container(
+              height: 200, // Altura do container
+              width: 390,
+              decoration: BoxDecoration(
+                color: Colors.black,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: messages.length,
+                itemBuilder: (context, index) {
+                  return Center(
+                    child: Text(
+                      messages[index],
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
-                ),
+                  );
+                },
               ),
             ),
-            SizedBox(height: 30),
-            // Lottie Animation (Example: Lottie file must be added to your project)
-            Lottie.asset('assets/animation.json', width: 150, height: 150),
+            const SizedBox(height: 20), // Espaço entre o slider e os pontos
+            // Pontinhos para indicar o slide atual
+            SmoothPageIndicator(
+              controller: _pageController,
+              count: messages.length,
+              effect: const ExpandingDotsEffect(
+                dotHeight: 8,
+                dotWidth: 8,
+                expansionFactor: 4,
+                spacing: 16,
+                dotColor: Colors.grey,
+                activeDotColor: Colors.white,
+              ),
+            ),
           ],
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
+import 'package:projeto_tcc_flutter/teste.dart';
 import 'pages/algoritmos.dart';
 
 class Foquenoessencial extends StatelessWidget {
