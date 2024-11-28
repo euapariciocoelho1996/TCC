@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/bodyPrincipal.dart';
+import 'package:provider/provider.dart';
 import './foqueNoEssencial.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => Counter(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,13 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeScreen(),
+      home: const HomeScreenLin1(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeScreenLin1 extends StatelessWidget {
+  const HomeScreenLin1({super.key});
 
   @override
   Widget build(BuildContext context) {

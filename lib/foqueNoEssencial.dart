@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
 import 'pages/algoritmos.dart';
 
@@ -18,28 +19,39 @@ class Foquenoessencial extends StatelessWidget {
             .spaceBetween, // Espaçamento igual entre os containers
 
         children: <Widget>[
-          Container(
-            width: 104,
-            height: 104,
-            decoration: BoxDecoration(
-              color: const Color.fromRGBO(252, 131, 51, 1),
-              borderRadius: BorderRadius.circular(3),
-              boxShadow: const [
-                //BoxShadow
-                BoxShadow(
-                  color: Colors.white,
-                  offset: Offset(0.0, 0.0),
-                  blurRadius: 0.0,
-                  spreadRadius: 0.0,
-                ), //BoxShadow
-              ],
-            ),
-            child: const Center(
-              child: Text(
-                'Praticar',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
+          InkWell(
+            onTap: () {
+              // Ação quando o Container é pressionado
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreenSecundario(),
+                ),
+              );
+            },
+            child: Container(
+              width: 104,
+              height: 104,
+              decoration: BoxDecoration(
+                color: const Color.fromRGBO(252, 131, 51, 1),
+                borderRadius: BorderRadius.circular(3),
+                boxShadow: const [
+                  //BoxShadow
+                  BoxShadow(
+                    color: Colors.white,
+                    offset: Offset(0.0, 0.0),
+                    blurRadius: 0.0,
+                    spreadRadius: 0.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: const Center(
+                child: Text(
+                  'Praticar',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
               ),
             ),
