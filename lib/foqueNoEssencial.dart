@@ -63,7 +63,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Referencias()));
+                      builder: (BuildContext context) => CodigoCApp()));
             },
             child: Container(
               width: 104,
