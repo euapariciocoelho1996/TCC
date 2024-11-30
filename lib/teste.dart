@@ -19,14 +19,59 @@ class SelecionarNivel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Selecione o Nível")),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          _buildNivelButton(context, "Fácil", 0),
-          _buildNivelButton(context, "Intermediário", 1),
-          _buildNivelButton(context, "Avançado", 2),
-        ],
+      appBar: AppBar(
+        title: Text("Selecione o Nível"),
+        backgroundColor: Colors.black,
+      ),
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/1.png"), // Caminho da imagem
+            fit: BoxFit.cover, // Ajusta a imagem ao tamanho da tela
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                // Imagem de fundo
+                Container(
+                  width: 350,
+                  height: 130,
+                  decoration: BoxDecoration(
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/estilo.png'),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                // Texto sobreposto
+                Text(
+                  'A arte das decisões: IF/ELSE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    shadows: [
+                      Shadow(
+                        offset: Offset(2, 2),
+                        blurRadius: 4,
+                        color: Colors.black.withOpacity(0.7),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            _buildNivelButton(context, "Fácil", 0),
+            _buildNivelButton(context, "Intermediário", 1),
+            _buildNivelButton(context, "Avançado", 2),
+          ],
+        ),
       ),
     );
   }
@@ -44,7 +89,50 @@ class SelecionarNivel extends StatelessWidget {
             ),
           );
         },
-        child: Text("Nível $nivel"),
+        style: ElevatedButton.styleFrom(
+          foregroundColor: const Color.fromARGB(255, 249, 247, 247),
+          backgroundColor: const Color.fromRGBO(255, 125, 151, 1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          minimumSize: Size(200, 60),
+        ),
+        child: RichText(
+          text: TextSpan(
+            children: [
+              const TextSpan(
+                text: 'Nível ',
+                style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5,
+                      color: Colors.black,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
+                ),
+              ),
+              TextSpan(
+                text: nivel,
+                style: const TextStyle(
+                  fontSize: 18,
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontWeight: FontWeight.w900,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5,
+                      color: Colors.black,
+                      offset: Offset(2, 2),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -93,116 +181,154 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
       [
         {
           'codigo': [
-            "#include <stdio.h>",
-            "int main() {",
-            "printf(\"Hello, World!\\n\");",
-            "return 0;",
+            "int x = 10;",
+            "if (x > 5) {",
+            "    printf(\"x é maior que 5\\n\");",
             "}"
           ],
           'explicacao':
-              "Este é um programa simples em C que imprime a mensagem 'Hello, World!'"
+              "Este código verifica se x é maior que 5 e imprime a mensagem correspondente."
         },
         {
           'codigo': [
-            "int x = 10;",
-            "int y = 20;",
-            "int soma = x + y;",
-            "printf(\"%d\\n\", soma);"
-          ],
-          'explicacao': "Este código calcula a soma de dois números inteiros."
-        },
-        {
-          'codigo': [
-            "float pi = 3.14;",
-            "printf(\"O valor de pi é %.2f\\n\", pi);"
+            "int x = 0;",
+            "if (x) {",
+            "    printf(\"x é verdadeiro\\n\");",
+            "} else {",
+            "    printf(\"x é falso\\n\");",
+            "}"
           ],
           'explicacao':
-              "Este programa demonstra como usar números de ponto flutuante."
+              "Este código verifica se x é verdadeiro (diferente de zero) ou falso (zero)."
         },
         {
-          'codigo': ["char letra = 'A';", "printf(\"%c\\n\", letra);"],
-          'explicacao': "Este programa mostra como imprimir um caractere."
-        },
+          'codigo': [
+            "int x = 5;",
+            "if (x < 3) {",
+            "    printf(\"Menor que 3\\n\");",
+            "} else {",
+            "    printf(\"Maior ou igual a 3\\n\");",
+            "}"
+          ],
+          'explicacao':
+              "Este código verifica se x é menor que 3 ou maior/igual a 3 e imprime a mensagem correspondente."
+        }
       ],
       // Nível Intermediário
       [
         {
           'codigo': [
             "int x = 5;",
-            "if (x > 0) {",
-            "printf(\"x é positivo\\n\");",
+            "if (x == 5) {",
+            "    printf(\"Cinco\\n\");",
+            "} else {",
+            "    printf(\"Outro\\n\");",
             "}"
           ],
-          'explicacao': "Este código verifica se um número é positivo."
+          'explicacao':
+              "Este código verifica se x é igual a 5 e imprime 'Cinco', caso contrário, imprime 'Outro'."
+        },
+        {
+          'codigo': [
+            "int x = -1;",
+            "if (x > 0) {",
+            "    printf(\"Positivo\\n\");",
+            "} else if (x == 0) {",
+            "    printf(\"Zero\\n\");",
+            "} else {",
+            "    printf(\"Negativo\\n\");",
+            "}"
+          ],
+          'explicacao':
+              "Este código verifica se x é positivo, zero ou negativo e imprime a mensagem correspondente."
         },
         {
           'codigo': [
             "int x = 10;",
-            "while (x > 0) {",
-            "printf(\"%d\\n\", x);",
-            "x--; }"
-          ],
-          'explicacao':
-              "Este programa utiliza um laço 'while' para contar regressivamente."
-        },
-        {
-          'codigo': [
-            "for (int i = 0; i < 3; i++) {",
-            "printf(\"Linha %d\\n\", i);",
+            "if (x >= 10) {",
+            "    printf(\"x é maior ou igual a 10\\n\");",
+            "} else {",
+            "    printf(\"x é menor que 10\\n\");",
             "}"
           ],
           'explicacao':
-              "Este programa usa um laço 'for' para imprimir linhas numeradas."
+              "Este código verifica se x é maior ou igual a 10 e imprime a mensagem correspondente."
         },
         {
           'codigo': [
-            "int x = 5;",
-            "switch (x) {",
-            "case 5: printf(\"Cinco\\n\"); break;",
-            "default: printf(\"Outro\\n\"); }"
+            "int x = 8;",
+            "if (x % 2 == 0) {",
+            "    printf(\"Número par\\n\");",
+            "} else {",
+            "    printf(\"Número ímpar\\n\");",
+            "}"
           ],
-          'explicacao': "Este programa utiliza a estrutura 'switch'."
-        },
+          'explicacao':
+              "Este código verifica se o número x é par ou ímpar e imprime a mensagem correspondente."
+        }
       ],
       // Nível Avançado
       [
         {
           'codigo': [
+            "int x = 7;",
+            "if (x > 0 && x % 2 == 0) {",
+            "    printf(\"Positivo e par\\n\");",
+            "} else if (x > 0 && x % 2 != 0) {",
+            "    printf(\"Positivo e ímpar\\n\");",
+            "} else {",
+            "    printf(\"Não positivo\\n\");",
+            "}"
+          ],
+          'explicacao':
+              "Este código verifica se x é positivo e par ou positivo e ímpar, e imprime a mensagem correspondente."
+        },
+        {
+          'codigo': [
             "int soma(int x, int y) {",
-            "return x + y;",
+            "    if (x > y) {",
+            "        return x + y;",
+            "    } else {",
+            "        return x - y;",
+            "    }",
             "}",
             "int main() {",
-            "printf(\"%d\\n\", soma(3, 4));",
-            "}"
-          ],
-          'explicacao': "Este programa demonstra como usar funções."
-        },
-        {
-          'codigo': [
-            "int vetor[3] = {1, 2, 3};",
-            "for (int i = 0; i < 3; i++) {",
-            "printf(\"%d\\n\", vetor[i]);",
+            "    printf(\"%d\\n\", soma(3, 4));",
             "}"
           ],
           'explicacao':
-              "Este programa usa um vetor e um laço 'for' para imprimir elementos."
+              "Este código usa uma função para somar ou subtrair dois números com base em uma condição."
         },
         {
           'codigo': [
-            "struct Ponto {",
-            "int x;",
-            "int y;",
-            "};",
-            "struct Ponto p = {1, 2};",
-            "printf(\"x=%d, y=%d\\n\", p.x, p.y);"
+            "int x = 10, y = 5;",
+            "if (x > y) {",
+            "    if (x % 2 == 0) {",
+            "        printf(\"x é par e maior que y\\n\");",
+            "    }",
+            "} else {",
+            "    printf(\"x não é maior que y\\n\");",
+            "}"
           ],
           'explicacao':
-              "Este programa usa uma estrutura (struct) para armazenar dados."
+              "Este código verifica se x é maior que y e, em caso afirmativo, verifica se x é par."
         },
         {
-          'codigo': ["int x = 10;", "int *px = &x;", "printf(\"%d\\n\", *px);"],
-          'explicacao': "Este programa demonstra como usar ponteiros."
-        },
+          'codigo': [
+            "int idade = 20;",
+            "if (idade >= 18) {",
+            "    if (idade < 21) {",
+            "        printf(\"Você é maior de idade, mas ainda não tem 21 anos.\\n\");",
+            "    } else {",
+            "        printf(\"Você tem 21 anos ou mais.\\n\");",
+            "    }",
+            "} else {",
+            "    printf(\"Você é menor de idade.\\n\");",
+            "}"
+          ],
+          'explicacao':
+              "Este código verifica se a pessoa é maior de idade e, em seguida, verifica a faixa etária para imprimir a mensagem correspondente."
+        }
       ],
     ];
 
@@ -220,120 +346,214 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Complete o Código em C")),
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 20),
-                Column(
-                  children: List.generate(codigoAlvo.length, (index) {
-                    return DragTarget<String>(
-                      onAccept: (trecho) {
-                        setState(() {
-                          espacosPreenchidos[index] = trecho;
-                        });
-                      },
-                      builder: (context, candidateData, rejectedData) {
-                        return Container(
-                          width: double.infinity,
-                          height: 60,
-                          margin: const EdgeInsets.symmetric(
-                              vertical: 4, horizontal: 16),
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          alignment: Alignment.centerLeft,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.blue, width: 2),
-                            color: espacosPreenchidos[index] != null
-                                ? Colors.lightBlueAccent
-                                : Colors.white,
+      appBar: AppBar(
+        title: Text("Complete o Código em C"),
+        backgroundColor: Colors.black,
+      ),
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/1.png"), // Imagem de fundo
+            fit: BoxFit.cover, // Ajusta a imagem ao tamanho do Drawer
+          ),
+        ),
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 20),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      // Imagem de fundo
+                      Container(
+                        width: 300,
+                        height: 115,
+                        decoration: BoxDecoration(
+                          image: const DecorationImage(
+                            image: AssetImage('assets/images/estilo.png'),
+                            fit: BoxFit.cover,
                           ),
-                          child: Text(
-                            espacosPreenchidos[index] ?? "_________",
-                            style: const TextStyle(
-                                fontSize: 16, fontFamily: 'monospace'),
-                          ),
-                        );
-                      },
-                    );
-                  }),
-                ),
-                const SizedBox(height: 40),
-                Wrap(
-                  spacing: 8.0,
-                  runSpacing: 8.0,
-                  children: trechosDisponiveis.map((trecho) {
-                    return Draggable<String>(
-                      data: trecho,
-                      child: _buildTrechoTile(trecho, false),
-                      feedback: _buildTrechoTile(trecho, true),
-                      childWhenDragging:
-                          _buildTrechoTile(trecho, false, dragging: true),
-                    );
-                  }).toList(),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: () {
-                    if (espacosPreenchidos.join() == codigoAlvo.join()) {
-                      _confettiController.play();
-                      if (perguntaAtual < desafios.length - 1) {
-                        setState(() {
-                          perguntaAtual++;
-                          _carregarPergunta();
-                        });
-                      } else {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Text('Parabéns!'),
-                              content: Text('Você completou a tarefa!'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context); // Fechar o dialog
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              SelecionarNivel()), // Navegar para a próxima tela
-                                    );
-                                  },
-                                  child: Text('OK'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    } else {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                            content: Text(
-                                "Algum trecho está incorreto. Tente novamente!")),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                      // Texto sobreposto
+                      Text(
+                        'Teste suas habilidades',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          shadows: [
+                            Shadow(
+                              offset: Offset(2, 2),
+                              blurRadius: 4,
+                              color: Colors.black.withOpacity(0.7),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Center(
+                      child: Text(
+                    'Organize o código na ordem correta da sintaxe!',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  )),
+                  const SizedBox(height: 20),
+                  Column(
+                    children: List.generate(codigoAlvo.length, (index) {
+                      return DragTarget<String>(
+                        onAccept: (trecho) {
+                          setState(() {
+                            espacosPreenchidos[index] = trecho;
+                          });
+                        },
+                        builder: (context, candidateData, rejectedData) {
+                          return Container(
+                            width: double.infinity,
+                            height: 45,
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 16),
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            alignment: Alignment.centerLeft,
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: const Color.fromARGB(255, 3, 3, 3),
+                                  width: 2),
+                              color: espacosPreenchidos[index] != null
+                                  ? const Color.fromRGBO(246, 224, 73, 1)
+                                  : Colors.white,
+                            ),
+                            child: Text(
+                              espacosPreenchidos[index] ?? "_________",
+                              style: const TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'monospace',
+                                  color: Colors.black),
+                            ),
+                          );
+                        },
                       );
-                    }
-                  },
-                  child: const Text("Validar"),
+                    }),
+                  ),
+                  const SizedBox(height: 20),
+                  Wrap(
+                    spacing: 5.0,
+                    runSpacing: 5.0,
+                    children: trechosDisponiveis.map((trecho) {
+                      return Draggable<String>(
+                        data: trecho,
+                        child: _buildTrechoTile(trecho, false),
+                        feedback: _buildTrechoTile(trecho, true),
+                        childWhenDragging:
+                            _buildTrechoTile(trecho, false, dragging: true),
+                      );
+                    }).toList(),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (espacosPreenchidos.join() == codigoAlvo.join()) {
+                          _confettiController.play();
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                title: const Text("Parabéns!"),
+                                content: const Text("Você acertou a resposta!"),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(
+                                          context); // Apenas fecha o diálogo
+                                    },
+                                    child: const Text("OK"),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+
+                          if (perguntaAtual < desafios.length - 1) {
+                            setState(() {
+                              perguntaAtual++;
+                              _carregarPergunta();
+                            });
+                          } else {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Parabéns!'),
+                                  content: Text(
+                                      'Você completou esta revisão! Fique de olho na próxima tarefa!'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(
+                                            context); // Fechar o dialog
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  SelecionarNivel()), // Navegar para a próxima tela
+                                        );
+                                      },
+                                      child: Text('OK'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text(
+                                    "Algum trecho está incorreto. Tente novamente!")),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor:
+                            const Color.fromARGB(255, 249, 247, 247),
+                        backgroundColor: const Color.fromRGBO(40, 23, 206, 1),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        minimumSize: Size(200, 60),
+                      ),
+                      child: const Text("VERIFICAR"),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Stack(
+              children: [
+                Align(
+                  alignment: Alignment
+                      .topCenter, // Posiciona o confete no topo da tela
+                  child: ConfettiWidget(
+                    confettiController: _confettiController,
+                    blastDirection:
+                        3 * pi / 2, // Direção para baixo (270 graus)
+                    maxBlastForce: 5, // Velocidade inicial máxima
+                    minBlastForce: 2, // Velocidade inicial mínima
+                    emissionFrequency: 0.05, // Frequência de emissão
+                    numberOfParticles: 30, // Número de partículas
+                    gravity: 0.3, // Velocidade de queda
+                  ),
                 ),
               ],
             ),
-          ),
-          Center(
-            child: ConfettiWidget(
-              confettiController: _confettiController,
-              blastDirection: pi / 2,
-              maxBlastForce: 5,
-              minBlastForce: 2,
-              emissionFrequency: 0.05,
-              numberOfParticles: 30,
-              gravity: 0.3,
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
