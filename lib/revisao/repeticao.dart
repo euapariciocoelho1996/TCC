@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'dart:math';
 
-void main() => runApp(CodigoCApp());
+void main() => runApp(CodigoCAppRepeticao());
 
-class CodigoCApp extends StatelessWidget {
+class CodigoCAppRepeticao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +40,7 @@ class SelecionarNivel extends StatelessWidget {
                 // Imagem de fundo
                 Container(
                   width: 350,
-                  height: 130,
+                  height: 135,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       image: AssetImage('assets/images/estilo.png'),
@@ -51,7 +51,7 @@ class SelecionarNivel extends StatelessWidget {
                 ),
                 // Texto sobreposto
                 Text(
-                  'A arte das decisões: IF/ELSE',
+                  'Loops em ação',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -190,155 +190,131 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
       [
         {
           'codigo': [
-            "int x = 10;",
-            "if (x > 5) {",
-            "    printf(\"x é maior que 5\\n\");",
+            "for (int i = 0; i < 5; i++) {",
+            "    printf(\"i: %d\\n\", i);",
             "}"
           ],
           'explicacao':
-              "Este código verifica se x é maior que 5 e imprime a mensagem correspondente."
+              "Este laço for executa 5 vezes, imprimindo o valor da variável 'i' de 0 a 4."
         },
         {
           'codigo': [
-            "int x = 0;",
-            "if (x) {",
-            "    printf(\"x é verdadeiro\\n\");",
-            "} else {",
-            "    printf(\"x é falso\\n\");",
+            "int i = 0;",
+            "while (i < 3) {",
+            "    printf(\"i: %d\\n\", i);",
+            "    i++;",
             "}"
           ],
           'explicacao':
-              "Este código verifica se x é verdadeiro (diferente de zero) ou falso (zero)."
+              "Este laço while continua enquanto 'i' for menor que 3, imprimindo o valor de 'i' e incrementando-o."
         },
         {
           'codigo': [
-            "int x = 5;",
-            "if (x < 3) {",
-            "    printf(\"Menor que 3\\n\");",
-            "} else {",
-            "    printf(\"Maior ou igual a 3\\n\");",
-            "}"
+            "int i = 0;",
+            "do {",
+            "    printf(\"i: %d\\n\", i);",
+            "    i++;",
+            "} while (i < 2);"
           ],
           'explicacao':
-              "Este código verifica se x é menor que 3 ou maior/igual a 3 e imprime a mensagem correspondente."
+              "Este laço do-while executa pelo menos uma vez, imprimindo o valor de 'i' enquanto 'i' for menor que 2."
         }
       ],
       // Nível Intermediário
       [
         {
           'codigo': [
-            "int x = 5;",
-            "if (x == 5) {",
-            "    printf(\"Cinco\\n\");",
-            "} else {",
-            "    printf(\"Outro\\n\");",
+            "for (int i = 0; i <= 10; i += 2) {",
+            "    printf(\"Par: %d\\n\", i);",
             "}"
           ],
           'explicacao':
-              "Este código verifica se x é igual a 5 e imprime 'Cinco', caso contrário, imprime 'Outro'."
+              "Este laço for imprime números pares de 0 a 10, incrementando 'i' de 2 em 2."
         },
         {
           'codigo': [
-            "int x = -1;",
-            "if (x > 0) {",
-            "    printf(\"Positivo\\n\");",
-            "} else if (x == 0) {",
-            "    printf(\"Zero\\n\");",
-            "} else {",
-            "    printf(\"Negativo\\n\");",
+            "int i = 10;",
+            "while (i > 0) {",
+            "    printf(\"Contagem regressiva: %d\\n\", i);",
+            "    i--;",
             "}"
           ],
           'explicacao':
-              "Este código verifica se x é positivo, zero ou negativo e imprime a mensagem correspondente."
+              "Este laço while realiza uma contagem regressiva de 10 a 1."
         },
         {
           'codigo': [
-            "int x = 10;",
-            "if (x >= 10) {",
-            "    printf(\"x é maior ou igual a 10\\n\");",
-            "} else {",
-            "    printf(\"x é menor que 10\\n\");",
-            "}"
+            "int i = 1;",
+            "do {",
+            "    printf(\"Quadrado de %d: %d\\n\", i, i * i);",
+            "    i++;",
+            "} while (i <= 3);"
           ],
           'explicacao':
-              "Este código verifica se x é maior ou igual a 10 e imprime a mensagem correspondente."
+              "Este laço do-while calcula o quadrado dos números de 1 a 3."
         },
         {
           'codigo': [
-            "int x = 8;",
-            "if (x % 2 == 0) {",
-            "    printf(\"Número par\\n\");",
-            "} else {",
-            "    printf(\"Número ímpar\\n\");",
+            "for (int i = 0; i < 5; i++) {",
+            "    if (i == 3) {",
+            "        break;",
+            "    }",
+            "    printf(\"i: %d\\n\", i);",
             "}"
           ],
           'explicacao':
-              "Este código verifica se o número x é par ou ímpar e imprime a mensagem correspondente."
+              "Este laço for para quando 'i' for igual a 3 devido ao comando 'break'."
         }
       ],
       // Nível Avançado
       [
         {
           'codigo': [
-            "int x = 7;",
-            "if (x > 0 && x % 2 == 0) {",
-            "    printf(\"Positivo e par\\n\");",
-            "} else if (x > 0 && x % 2 != 0) {",
-            "    printf(\"Positivo e ímpar\\n\");",
-            "} else {",
-            "    printf(\"Não positivo\\n\");",
+            "for (int i = 0; i < 5; i++) {",
+            "    if (i % 2 == 0) {",
+            "        continue;",
+            "    }",
+            "    printf(\"i: %d\\n\", i);",
             "}"
           ],
           'explicacao':
-              "Este código verifica se x é positivo e par ou positivo e ímpar, e imprime a mensagem correspondente."
+              "Este laço for ignora números pares usando o comando 'continue'."
         },
         {
           'codigo': [
-            "int soma(int x, int y) {",
-            "    if (x > y) {",
-            "        return x + y;",
-            "    } else {",
-            "        return x - y;",
-            "    }",
+            "int i = 0, soma = 0;",
+            "while (i <= 5) {",
+            "    soma += i;",
+            "    i++;",
             "}",
-            "int main() {",
-            "    printf(\"%d\\n\", soma(3, 4));",
-            "}"
+            "printf(\"Soma total: %d\\n\", soma);"
           ],
-          'explicacao':
-              "Este código usa uma função para somar ou subtrair dois números com base em uma condição."
+          'explicacao': "Este laço while calcula a soma dos números de 0 a 5."
         },
         {
           'codigo': [
-            "int x = 10, y = 5;",
-            "if (x > y) {",
-            "    if (x % 2 == 0) {",
-            "        printf(\"x é par e maior que y\\n\");",
-            "    }",
-            "} else {",
-            "    printf(\"x não é maior que y\\n\");",
-            "}"
+            "int n = 3, fatorial = 1;",
+            "for (int i = 1; i <= n; i++) {",
+            "    fatorial *= i;",
+            "}",
+            "printf(\"Fatorial de %d: %d\\n\", n, fatorial);"
           ],
-          'explicacao':
-              "Este código verifica se x é maior que y e, em caso afirmativo, verifica se x é par."
+          'explicacao': "Este laço for calcula o fatorial de 3 (n!), que é 6."
         },
         {
           'codigo': [
-            "int idade = 20;",
-            "if (idade >= 18) {",
-            "    if (idade < 21) {",
-            "        printf(\"Você é maior de idade, mas ainda não tem 21 anos.\\n\");",
-            "    } else {",
-            "        printf(\"Você tem 21 anos ou mais.\\n\");",
+            "int linhas = 3;",
+            "for (int i = 1; i <= linhas; i++) {",
+            "    for (int j = 1; j <= i; j++) {",
+            "        printf(\"* \");",
             "    }",
-            "} else {",
-            "    printf(\"Você é menor de idade.\\n\");",
+            "    printf(\"\\n\");",
             "}"
           ],
           'explicacao':
-              "Este código verifica se a pessoa é maior de idade e, em seguida, verifica a faixa etária para imprimir a mensagem correspondente."
+              "Este laço for aninhado imprime um triângulo de asteriscos com 3 linhas."
         }
-      ],
+      ]
     ];
 
     desafios = todosDesafios[nivel];
@@ -479,21 +455,99 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                       onPressed: () {
                         if (espacosPreenchidos.join() == codigoAlvo.join()) {
                           _confettiController.play();
-                          showDialog(
+
+                          showGeneralDialog(
                             context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                title: const Text("Parabéns!"),
-                                content: const Text("Você acertou a resposta!"),
-                                actions: [
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(
-                                          context); // Apenas fecha o diálogo
-                                    },
-                                    child: const Text("OK"),
+                            barrierDismissible: true,
+                            barrierLabel: "Fechar",
+                            transitionDuration:
+                                const Duration(milliseconds: 600),
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) {
+                              return Stack(
+                                children: [
+                                  // Confete
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: ConfettiWidget(
+                                      confettiController: _confettiController,
+                                      blastDirectionality:
+                                          BlastDirectionality.explosive,
+                                      emissionFrequency: 0.05,
+                                      numberOfParticles: 20,
+                                      gravity: 0.1,
+                                    ),
+                                  ),
+                                  // ShowDialog
+                                  Align(
+                                    alignment: Alignment.center,
+                                    child: Material(
+                                      borderRadius: BorderRadius.circular(25),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: const Color.fromRGBO(
+                                              255, 125, 151, 1),
+                                          border: Border.all(
+                                            color: const Color.fromARGB(
+                                                255, 0, 0, 0), // Cor da borda
+                                            width: 3, // Espessura da borda
+                                          ),
+                                          borderRadius: BorderRadius.circular(
+                                              10), // Bordas arredondadas
+                                        ),
+                                        padding: EdgeInsets.all(20),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.8,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            const Text(
+                                              "Parabéns!",
+                                              style: TextStyle(
+                                                fontSize: 30,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                            Text(
+                                              "Continue assim! Você está indo muito bem!",
+                                              style: TextStyle(
+                                                  shadows: [
+                                                    Shadow(
+                                                      offset: Offset(2, 2),
+                                                      blurRadius: 4,
+                                                      color: Colors.black
+                                                          .withOpacity(0.7),
+                                                    ),
+                                                  ],
+                                                  fontSize: 16,
+                                                  color: const Color.fromARGB(
+                                                      255, 255, 255, 255)),
+                                            ),
+                                            const SizedBox(height: 20),
+                                            ElevatedButton(
+                                              onPressed: () =>
+                                                  Navigator.of(context).pop(),
+                                              child: Text("Continuar"),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
                                   ),
                                 ],
+                              );
+                            },
+                            transitionBuilder: (context, animation,
+                                secondaryAnimation, child) {
+                              final curvedAnimation = CurvedAnimation(
+                                parent: animation,
+                                curve: Curves.elasticOut,
+                              );
+                              return ScaleTransition(
+                                scale: curvedAnimation,
+                                child: child,
                               );
                             },
                           );
