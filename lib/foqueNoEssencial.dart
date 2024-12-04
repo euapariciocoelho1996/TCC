@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
 import 'package:projeto_tcc_flutter/revisao/repeticao.dart';
-import 'package:projeto_tcc_flutter/teste.dart';
+import 'package:projeto_tcc_flutter/teste2.dart';
 import 'pages/algoritmos.dart';
 
 class Foquenoessencial extends StatelessWidget {
@@ -52,7 +52,7 @@ class Foquenoessencial extends StatelessWidget {
                   'Praticar',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 16,
                   ),
                 ),
               ),
@@ -64,7 +64,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => CodigoCAppRepeticao()));
+                      builder: (BuildContext context) => MusicPlayerScreen()));
             },
             child: Container(
               width: 104,
@@ -87,7 +87,7 @@ class Foquenoessencial extends StatelessWidget {
                   'Referências',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 16,
                   ),
                 ),
               ),
@@ -123,7 +123,7 @@ class Foquenoessencial extends StatelessWidget {
                   'Algoritmos',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 15,
+                    fontSize: 16,
                   ),
                 ),
               ),

@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/foqueNoEssencial.dart';
+import 'package:projeto_tcc_flutter/revisao/button-rev.dart';
+import 'package:projeto_tcc_flutter/revisao/titulo-rev.dart';
+import 'package:projeto_tcc_flutter/t.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Bodyprincipal extends StatefulWidget {
@@ -180,13 +183,13 @@ class _BodyprincipalState extends State<Bodyprincipal> {
                     ),
                   ),
                   Container(
-                    margin: const EdgeInsets.only(bottom: 10.0),
+                    margin: const EdgeInsets.only(bottom: 8.0),
                     width: double.infinity,
                     height: 180,
                     alignment: Alignment.center,
                     child: const SingleChildScrollView(
                       // Permite a rolagem se o texto for longo
-                      padding: EdgeInsets.all(13.0), // Adiciona padding
+                      padding: EdgeInsets.all(10.0), // Adiciona padding
                       child: Text(
                         'Este aplicativo é voltado para estudantes interessados em tópicos relacionados a algoritmos de ordenação, oferecendo conteúdos interativos, exemplos práticos e exercícios que ajudam a consolidar o aprendizado de maneira dinâmica e envolvente.',
                         style: TextStyle(
@@ -205,9 +208,9 @@ class _BodyprincipalState extends State<Bodyprincipal> {
                 child: Column(
                   children: [
                     // Conteúdo do container
-                    const SizedBox(height: 15),
+
                     const Text(
-                      'FOQUE NO ESSENCIAL',
+                      'NOSTALGIA É NOSSO ESTILO',
                       style: TextStyle(
                         color: Color.fromARGB(255, 255, 255, 255),
                         fontSize: 18,
@@ -224,8 +227,13 @@ class _BodyprincipalState extends State<Bodyprincipal> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
+              ButtonRevisao(),
+              const SizedBox(height: 30),
               // Espaçamento entre os containers
+              CustomRichText(
+                  info: 'FOQUE NO', // Texto normal
+                  title: 'ESSENCIAL'),
               const Foquenoessencial(),
             ],
           ),

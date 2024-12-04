@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
 import 'dart:math';
 
+import 'package:projeto_tcc_flutter/t.dart';
+
 void main() => runApp(CodigoCAppRepeticao());
 
 class CodigoCAppRepeticao extends StatelessWidget {
@@ -526,10 +528,19 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                                                       255, 255, 255, 255)),
                                             ),
                                             const SizedBox(height: 20),
-                                            ElevatedButton(
-                                              onPressed: () =>
-                                                  Navigator.of(context).pop(),
-                                              child: Text("Continuar"),
+                                            Container(
+                                              child: ElevatedButton(
+                                                style: ElevatedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10), // Bordas arredondadas
+                                                  ),
+                                                ),
+                                                onPressed: () =>
+                                                    Navigator.of(context).pop(),
+                                                child: Text("Continuar"),
+                                              ),
                                             ),
                                           ],
                                         ),

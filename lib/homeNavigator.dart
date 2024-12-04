@@ -17,7 +17,10 @@ class MyFloatingButton extends StatelessWidget {
         );
       },
       backgroundColor: Colors.white,
-      child: const Icon(Icons.home),
+      child: const Icon(
+        Icons.home,
+        color: const Color.fromRGBO(40, 23, 206, 1),
+      ),
     );
   }
 }

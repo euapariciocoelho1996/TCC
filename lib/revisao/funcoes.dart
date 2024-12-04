@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
+import 'package:projeto_tcc_flutter/homeNavigator.dart';
+import 'package:projeto_tcc_flutter/revisao/titulo-rev.dart';
+import 'package:projeto_tcc_flutter/revisao/titulo2-rev.dart';
+import 'package:projeto_tcc_flutter/revisao/titulo3-rev.dart';
 import 'dart:math';
 
 import 'package:projeto_tcc_flutter/t.dart';
 
-void main() => runApp(CodigoCAppIf());
+void main() => runApp(CodigoCAppFuncoes());
 
-class CodigoCAppIf extends StatelessWidget {
+class CodigoCAppFuncoes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,8 +45,8 @@ class SelecionarNivel extends StatelessWidget {
               children: [
                 // Imagem de fundo
                 Container(
-                  width: 350,
-                  height: 135,
+                  width: 300,
+                  height: 140,
                   decoration: BoxDecoration(
                     image: const DecorationImage(
                       image: AssetImage('assets/images/estilo.png'),
@@ -53,10 +57,10 @@ class SelecionarNivel extends StatelessWidget {
                 ),
                 // Texto sobreposto
                 Text(
-                  'Se dúvida, põe mais um if',
+                  'Funções',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                     shadows: [
                       Shadow(
@@ -75,6 +79,7 @@ class SelecionarNivel extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: const MyFloatingButton(),
     );
   }
 
@@ -188,159 +193,113 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
 
   void _carregarDesafios(int nivel) {
     final todosDesafios = [
-      // Nível Fácil
       [
         {
           'codigo': [
-            "int x = 10;",
-            "if (x > 5) {",
-            "    printf(\"x é maior que 5\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é maior que 5 e imprime a mensagem correspondente."
-        },
-        {
-          'codigo': [
-            "int x = 0;",
-            "if (x) {",
-            "    printf(\"x é verdadeiro\\n\");",
-            "} else {",
-            "    printf(\"x é falso\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é verdadeiro (diferente de zero) ou falso (zero)."
-        },
-        {
-          'codigo': [
-            "int x = 5;",
-            "if (x < 3) {",
-            "    printf(\"Menor que 3\\n\");",
-            "} else {",
-            "    printf(\"Maior ou igual a 3\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é menor que 3 ou maior/igual a 3 e imprime a mensagem correspondente."
-        }
-      ],
-      // Nível Intermediário
-      [
-        {
-          'codigo': [
-            "int x = 5;",
-            "if (x == 5) {",
-            "    printf(\"Cinco\\n\");",
-            "} else {",
-            "    printf(\"Outro\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é igual a 5 e imprime 'Cinco', caso contrário, imprime 'Outro'."
-        },
-        {
-          'codigo': [
-            "int x = -1;",
-            "if (x > 0) {",
-            "    printf(\"Positivo\\n\");",
-            "} else if (x == 0) {",
-            "    printf(\"Zero\\n\");",
-            "} else {",
-            "    printf(\"Negativo\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é positivo, zero ou negativo e imprime a mensagem correspondente."
-        },
-        {
-          'codigo': [
-            "int x = 10;",
-            "if (x >= 10) {",
-            "    printf(\"x é maior ou igual a 10\\n\");",
-            "} else {",
-            "    printf(\"x é menor que 10\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é maior ou igual a 10 e imprime a mensagem correspondente."
-        },
-        {
-          'codigo': [
-            "int x = 8;",
-            "if (x % 2 == 0) {",
-            "    printf(\"Número par\\n\");",
-            "} else {",
-            "    printf(\"Número ímpar\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se o número x é par ou ímpar e imprime a mensagem correspondente."
-        }
-      ],
-      // Nível Avançado
-      [
-        {
-          'codigo': [
-            "int x = 7;",
-            "if (x > 0 && x % 2 == 0) {",
-            "    printf(\"Positivo e par\\n\");",
-            "} else if (x > 0 && x % 2 != 0) {",
-            "    printf(\"Positivo e ímpar\\n\");",
-            "} else {",
-            "    printf(\"Não positivo\\n\");",
-            "}"
-          ],
-          'explicacao':
-              "Este código verifica se x é positivo e par ou positivo e ímpar, e imprime a mensagem correspondente."
-        },
-        {
-          'codigo': [
-            "int soma(int x, int y) {",
-            "    if (x > y) {",
-            "        return x + y;",
-            "    } else {",
-            "        return x - y;",
-            "    }",
+            "int soma(int a, int b) {",
+            "    return a + b;",
             "}",
             "int main() {",
-            "    printf(\"%d\\n\", soma(3, 4));",
+            "    printf(\"Resultado: %d\\n\", soma(3, 2));",
             "}"
           ],
-          'explicacao':
-              "Este código usa uma função para somar ou subtrair dois números com base em uma condição."
+          'explicacao': "Função para somar dois números e imprimir o resultado."
         },
         {
           'codigo': [
-            "int x = 10, y = 5;",
-            "if (x > y) {",
-            "    if (x % 2 == 0) {",
-            "        printf(\"x é par e maior que y\\n\");",
-            "    }",
-            "} else {",
-            "    printf(\"x não é maior que y\\n\");",
+            "void imprimeMensagem() {",
+            "    printf(\"Olá, funções!\\n\");",
+            "}",
+            "int main() {",
+            "    imprimeMensagem();",
             "}"
           ],
-          'explicacao':
-              "Este código verifica se x é maior que y e, em caso afirmativo, verifica se x é par."
+          'explicacao': "Função para imprimir uma mensagem na tela."
         },
         {
           'codigo': [
-            "int idade = 20;",
-            "if (idade >= 18) {",
-            "    if (idade < 21) {",
-            "        printf(\"Você é maior de idade, mas ainda não tem 21 anos.\\n\");",
-            "    } else {",
-            "        printf(\"Você tem 21 anos ou mais.\\n\");",
-            "    }",
-            "} else {",
-            "    printf(\"Você é menor de idade.\\n\");",
+            "int quadrado(int x) {",
+            "    return x * x;",
+            "}",
+            "int main() {",
+            "    printf(\"Quadrado: %d\\n\", quadrado(4));",
             "}"
           ],
-          'explicacao':
-              "Este código verifica se a pessoa é maior de idade e, em seguida, verifica a faixa etária para imprimir a mensagem correspondente."
+          'explicacao': "Função que calcula o quadrado de um número."
         }
       ],
+      [
+        {
+          'codigo': [
+            "int maior(int a, int b) {",
+            "    return (a > b) ? a : b;",
+            "}",
+            "int main() {",
+            "    printf(\"Maior: %d\\n\", maior(10, 15));",
+            "}"
+          ],
+          'explicacao': "Função que retorna o maior entre dois números."
+        },
+        {
+          'codigo': [
+            "int fatorial(int n) {",
+            "    return (n <= 1) ? 1 : n * fatorial(n - 1);",
+            "}",
+            "int main() {",
+            "    printf(\"Fatorial: %d\\n\", fatorial(5));",
+            "}"
+          ],
+          'explicacao': "Função recursiva para calcular o fatorial."
+        },
+        {
+          'codigo': [
+            "int primo(int n) {",
+            "    for (int i = 2; i < n; i++)",
+            "        if (n % i == 0) return 0;",
+            "    return n > 1;",
+            "}",
+            "int main() { printf(\"7 é primo: %d\\n\", primo(7)); }"
+          ],
+          'explicacao': "Função que verifica se um número é primo."
+        }
+      ],
+      [
+        {
+          'codigo': [
+            "void inverter(char *s) {",
+            "    for (int i = 0, n = strlen(s); i < n / 2; i++) {",
+            "        char tmp = s[i]; s[i] = s[n - i - 1]; s[n - i - 1] = tmp;",
+            "    }",
+            "}",
+            "int main() { char s[] = \"abcd\"; inverter(s); printf(\"%s\\n\", s); }"
+          ],
+          'explicacao': "Função que inverte os caracteres de uma string."
+        },
+        {
+          'codigo': [
+            "int fibonacci(int n) {",
+            "    return (n <= 1) ? n : fibonacci(n - 1) + fibonacci(n - 2);",
+            "}",
+            "int main() {",
+            "    for (int i = 0; i < 10; i++)",
+            "        printf(\"%d \", fibonacci(i));",
+            "}"
+          ],
+          'explicacao':
+              "Calcula os primeiros números da sequência de Fibonacci."
+        },
+        {
+          'codigo': [
+            "double potencia(double base, int expo) {",
+            "    return (expo == 0) ? 1 : base * potencia(base, expo - 1);",
+            "}",
+            "int main() {",
+            "    printf(\"Resultado: %.2f\\n\", potencia(2.0, 3));",
+            "}"
+          ],
+          'explicacao': "Calcula a potência de um número usando recursão."
+        }
+      ]
     ];
 
     desafios = todosDesafios[nivel];
@@ -381,49 +340,11 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  const SizedBox(height: 20),
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      // Imagem de fundo
-                      Container(
-                        width: 300,
-                        height: 120,
-                        decoration: BoxDecoration(
-                          image: const DecorationImage(
-                            image: AssetImage('assets/images/estilo.png'),
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                      ),
-                      // Texto sobreposto
-                      Text(
-                        'Teste suas habilidades',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          shadows: [
-                            Shadow(
-                              offset: Offset(2, 2),
-                              blurRadius: 4,
-                              color: Colors.black.withOpacity(0.7),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                  const SizedBox(height: 5),
+                  Center(
+                    child: AnimatedTyperText(),
                   ),
-                  const Center(
-                      child: Text(
-                    'Organize o código na ordem correta da sintaxe!',
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
-                  )),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   Column(
                     children: List.generate(codigoAlvo.length, (index) {
                       return DragTarget<String>(
@@ -451,7 +372,7 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                             child: Text(
                               espacosPreenchidos[index] ?? "_________",
                               style: const TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 15,
                                   fontFamily: 'monospace',
                                   color: Colors.black),
                             ),
@@ -463,7 +384,7 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                   const SizedBox(height: 20),
                   Wrap(
                     spacing: 5.0,
-                    runSpacing: 7.0,
+                    runSpacing: 5.0,
                     children: trechosDisponiveis.map((trecho) {
                       return Draggable<String>(
                         data: trecho,
@@ -512,7 +433,7 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: const Color.fromRGBO(
-                                              255, 125, 151, 1),
+                                              40, 23, 206, 1),
                                           border: Border.all(
                                             color: const Color.fromARGB(
                                                 255, 0, 0, 0), // Cor da borda
@@ -531,6 +452,7 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                                             const Text(
                                               "Parabéns!",
                                               style: TextStyle(
+                                                color: Colors.white,
                                                 fontSize: 30,
                                                 fontWeight: FontWeight.bold,
                                               ),
@@ -676,22 +598,26 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
 
   Widget _buildTrechoTile(String trecho, bool isDragging,
       {bool dragging = false}) {
-    return Material(
-      color: const Color.fromARGB(101, 0, 0, 0),
-      elevation: isDragging ? 5 : 0,
-      child: Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          decoration: BoxDecoration(
-            color: dragging
-                ? Colors.grey
-                : const Color.fromARGB(255, 243, 121, 33),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Text(
-            trecho,
-            style: const TextStyle(
-                fontSize: 16, fontFamily: 'monospace', color: Colors.white),
+    return Center(
+      child: Container(
+        width: 280,
+        child: Material(
+          elevation: isDragging ? 5 : 0,
+          child: Center(
+            child: Container(
+              width: 280,
+              padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+              decoration: BoxDecoration(
+                color: dragging
+                    ? Colors.grey
+                    : const Color.fromARGB(255, 243, 121, 33),
+              ),
+              child: Text(
+                trecho,
+                style: const TextStyle(
+                    fontSize: 16, fontFamily: 'monospace', color: Colors.white),
+              ),
+            ),
           ),
         ),
       ),
