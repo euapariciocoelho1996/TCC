@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/foqueNoEssencial.dart';
 import 'package:projeto_tcc_flutter/revisao/button-rev.dart';
 import 'package:projeto_tcc_flutter/revisao/titulo-rev.dart';
-import 'package:projeto_tcc_flutter/t.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Bodyprincipal extends StatefulWidget {

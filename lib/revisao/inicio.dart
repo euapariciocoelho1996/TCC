@@ -1,13 +1,10 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/homeNavigator.dart';
 import 'package:projeto_tcc_flutter/pages/insertion.dart';
-import 'package:projeto_tcc_flutter/pages/shell.dart';
 import 'package:projeto_tcc_flutter/pages/quickSort.dart';
-import 'package:projeto_tcc_flutter/revisao/funcoes.dart';
-import 'package:projeto_tcc_flutter/revisao/if.dart';
-import 'package:projeto_tcc_flutter/revisao/repeticao.dart';
+import 'package:projeto_tcc_flutter/revisao/funcao/funcoes.dart';
+import 'package:projeto_tcc_flutter/revisao/repeticao/repeticao.dart';
 
 class RevisaoInicio extends StatefulWidget {
   const RevisaoInicio({super.key});
@@ -100,7 +97,7 @@ class _RevisaoInicioState extends State<RevisaoInicio>
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => CodigoCAppIf()),
+                              builder: (context) => CodigoCAppFuncoes()),
                         );
                       },
                     ),

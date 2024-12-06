@@ -5,6 +5,8 @@ import 'package:projeto_tcc_flutter/ensino/quick/q-simula.dart';
 // Supondo que você tenha o arquivo da simulação do QuickSort
 
 class QuickSortIntroduction extends StatelessWidget {
+  const QuickSortIntroduction({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -4,6 +4,8 @@ import 'package:projeto_tcc_flutter/ensino/bubble/b-simula.dart';
 
 
 class BubbleSortIntroduction extends StatelessWidget {
+  const BubbleSortIntroduction({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

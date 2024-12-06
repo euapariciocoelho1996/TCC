@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
-import 'package:projeto_tcc_flutter/revisao/repeticao.dart';
-import 'package:projeto_tcc_flutter/teste2.dart';
+
+
 import 'pages/algoritmos.dart';
 
 class Foquenoessencial extends StatelessWidget {
@@ -64,7 +64,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => MusicPlayerScreen()));
+                      builder: (BuildContext context) => Referencias()));
             },
             child: Container(
               width: 104,

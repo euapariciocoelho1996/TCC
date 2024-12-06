@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_tcc_flutter/revisao/revisao_inicio.dart';
+import 'package:projeto_tcc_flutter/revisao/inicio.dart';
 
 class ButtonRevisao extends StatelessWidget {
+  const ButtonRevisao({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 375,
       child: ElevatedButton(
         onPressed: () {

@@ -4,7 +4,6 @@ import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/bodyPrincipal.dart';
 import 'package:projeto_tcc_flutter/main-secundario.dart';
 import 'package:provider/provider.dart';
-import './foqueNoEssencial.dart';
 
 void main() {
   runApp(

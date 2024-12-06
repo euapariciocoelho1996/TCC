@@ -4,6 +4,8 @@ import 'package:projeto_tcc_flutter/ensino/shell/sh-simula.dart';
 
 
 class ShellSortIntroduction extends StatelessWidget {
+  const ShellSortIntroduction({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

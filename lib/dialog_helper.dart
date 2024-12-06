@@ -2,7 +2,7 @@
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 
-void showCorrectAnswerDialog(BuildContext context, String correctAnswer, String explanation, ConfettiController _confettiController) {
+void showCorrectAnswerDialog(BuildContext context, String correctAnswer, String explanation, ConfettiController confettiController) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
@@ -36,7 +36,7 @@ void showCorrectAnswerDialog(BuildContext context, String correctAnswer, String 
             child: const Text('Fechar'),
             onPressed: () {
               Navigator.of(context).pop(); // Fecha o dialog
-              _confettiController.play(); // Toca o confete
+              confettiController.play(); // Toca o confete
             },
           ),
         ],

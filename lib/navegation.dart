@@ -13,7 +13,7 @@ class _NavegacaoState extends State<Navegacao> {
   int _selectedIndex = 0;
 
   // Lista de páginas que serão exibidas conforme a aba selecionada
-  static List<Widget> _pages = <Widget>[
+  static final List<Widget> _pages = <Widget>[
     Algoritmos(), // Página inicial (Home)
     Center(child: Text('Página de Pesquisa')), // Página de Pesquisa
     Center(child: Text('Página de Perfil')), // Página de Perfil

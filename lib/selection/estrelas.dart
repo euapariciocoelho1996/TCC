@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 
 class StarRatingS extends StatelessWidget {
+  const StarRatingS({super.key});
+
   @override
   Widget build(BuildContext context) {
     final score = Provider.of<Counter>(context).count;
@@ -38,7 +40,7 @@ class Star extends StatelessWidget {
   final bool filled;
   final double size;
 
-  const Star({required this.filled, required this.size});
+  const Star({super.key, required this.filled, required this.size});
 
   @override
   Widget build(BuildContext context) {

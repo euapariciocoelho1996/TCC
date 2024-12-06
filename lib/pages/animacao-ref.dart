@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 
 class AnimatedHeart extends StatefulWidget {
+  const AnimatedHeart({super.key});
+
   @override
   _AnimatedHeartState createState() => _AnimatedHeartState();
 }

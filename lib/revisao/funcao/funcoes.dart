@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:confetti/confetti.dart';
+import 'package:projeto_tcc_flutter/ShowDialog.dart';
+import 'package:projeto_tcc_flutter/revisao/funcao/funcao-alert.dart';
 import 'package:projeto_tcc_flutter/homeNavigator.dart';
 import 'package:projeto_tcc_flutter/revisao/titulo-rev.dart';
 import 'package:projeto_tcc_flutter/revisao/titulo2-rev.dart';
@@ -15,13 +17,13 @@ class CodigoCAppFuncoes extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark(),
-      home: SelecionarNivel(),
+      home: SelecionarNivelFuncoes(),
     );
   }
 }
 
 // Tela de seleção de nível
-class SelecionarNivel extends StatelessWidget {
+class SelecionarNivelFuncoes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -403,111 +405,15 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                         if (espacosPreenchidos.join() == codigoAlvo.join()) {
                           _confettiController.play();
 
-                          showGeneralDialog(
-                            context: context,
-                            barrierDismissible: true,
-                            barrierLabel: "Fechar",
-                            transitionDuration:
-                                const Duration(milliseconds: 600),
-                            pageBuilder:
-                                (context, animation, secondaryAnimation) {
-                              return Stack(
-                                children: [
-                                  // Confete
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: ConfettiWidget(
-                                      confettiController: _confettiController,
-                                      blastDirectionality:
-                                          BlastDirectionality.explosive,
-                                      emissionFrequency: 0.05,
-                                      numberOfParticles: 20,
-                                      gravity: 0.1,
-                                    ),
-                                  ),
-                                  // ShowDialog
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: Material(
-                                      borderRadius: BorderRadius.circular(25),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: const Color.fromRGBO(
-                                              40, 23, 206, 1),
-                                          border: Border.all(
-                                            color: const Color.fromARGB(
-                                                255, 0, 0, 0), // Cor da borda
-                                            width: 3, // Espessura da borda
-                                          ),
-                                          borderRadius: BorderRadius.circular(
-                                              10), // Bordas arredondadas
-                                        ),
-                                        padding: EdgeInsets.all(20),
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.8,
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            const Text(
-                                              "Parabéns!",
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                            Text(
-                                              "Continue assim! Você está indo muito bem!",
-                                              style: TextStyle(
-                                                  shadows: [
-                                                    Shadow(
-                                                      offset: Offset(2, 2),
-                                                      blurRadius: 4,
-                                                      color: Colors.black
-                                                          .withOpacity(0.7),
-                                                    ),
-                                                  ],
-                                                  fontSize: 16,
-                                                  color: const Color.fromARGB(
-                                                      255, 255, 255, 255)),
-                                            ),
-                                            const SizedBox(height: 20),
-                                            Container(
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10), // Bordas arredondadas
-                                                  ),
-                                                ),
-                                                onPressed: () =>
-                                                    Navigator.of(context).pop(),
-                                                child: Text("Continuar"),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            },
-                            transitionBuilder: (context, animation,
-                                secondaryAnimation, child) {
-                              final curvedAnimation = CurvedAnimation(
-                                parent: animation,
-                                curve: Curves.elasticOut,
-                              );
-                              return ScaleTransition(
-                                scale: curvedAnimation,
-                                child: child,
-                              );
-                            },
-                          );
+                          if (perguntaAtual < desafios.length - 1) {
+                            showCustomDialog(
+                              context: context,
+                              title: "Parabéns!",
+                              message:
+                                  "Continue assim! Você está indo muito bem!",
+                              confettiController: _confettiController,
+                            );
+                          }
 
                           if (perguntaAtual < desafios.length - 1) {
                             setState(() {
@@ -515,31 +421,7 @@ class _CompletarCodigoCState extends State<CompletarCodigoC> {
                               _carregarPergunta();
                             });
                           } else {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('Parabéns!'),
-                                  content: Text(
-                                      'Você completou esta revisão! Fique de olho na próxima tarefa!'),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(
-                                            context); // Fechar o dialog
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  SelecionarNivel()), // Navegar para a próxima tela
-                                        );
-                                      },
-                                      child: Text('OK'),
-                                    ),
-                                  ],
-                                );
-                              },
-                            );
+                            showCustomDialogWithoutParams(context);
                           }
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(

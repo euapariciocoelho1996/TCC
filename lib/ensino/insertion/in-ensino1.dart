@@ -4,6 +4,8 @@ import 'package:projeto_tcc_flutter/ensino/insertion/in-simula.dart';
 
 
 class InsertionSortIntroduction extends StatelessWidget {
+  const InsertionSortIntroduction({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

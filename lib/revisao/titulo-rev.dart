@@ -17,7 +17,7 @@ class CustomRichText extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
         text: TextSpan(
-            text: '$info',
+            text: info,
             style: firstTextStyle ??
                 const TextStyle(
                     fontSize: 19,
