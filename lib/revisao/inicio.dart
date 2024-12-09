@@ -4,7 +4,9 @@ import 'package:projeto_tcc_flutter/homeNavigator.dart';
 import 'package:projeto_tcc_flutter/pages/insertion.dart';
 import 'package:projeto_tcc_flutter/pages/quickSort.dart';
 import 'package:projeto_tcc_flutter/revisao/funcao/funcoes.dart';
+import 'package:projeto_tcc_flutter/revisao/ponteiros/ponteiros.dart';
 import 'package:projeto_tcc_flutter/revisao/repeticao/repeticao.dart';
+import 'package:projeto_tcc_flutter/revisao/vetor/vetor.dart';
 
 class RevisaoInicio extends StatefulWidget {
   const RevisaoInicio({super.key});
@@ -16,7 +18,7 @@ class RevisaoInicio extends StatefulWidget {
 class _RevisaoInicioState extends State<RevisaoInicio>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<Offset> _animation;
+  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -25,9 +27,10 @@ class _RevisaoInicioState extends State<RevisaoInicio>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    _animation = Tween<Offset>(
-      begin: const Offset(1.0, 0.0), // Começa fora da tela à direita
-      end: Offset.zero, // Finaliza no centro
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0.0, 1.0), // Começa fora da tela (abaixo)
+      end: Offset.zero, // Finaliza na posição original
     ).animate(CurvedAnimation(
       parent: _controller,
       curve: Curves.easeInOut,
@@ -45,7 +48,7 @@ class _RevisaoInicioState extends State<RevisaoInicio>
   @override
   Widget build(BuildContext context) {
     return SlideTransition(
-      position: _animation,
+      position: _slideAnimation,
       child: Scaffold(
         backgroundColor: const Color.fromARGB(255, 33, 31, 31),
         appBar: customAppBar('Nome Aplicativo'),
@@ -116,14 +119,15 @@ class _RevisaoInicioState extends State<RevisaoInicio>
                     ),
                     _buildTimelineItem(
                       number: '3',
-                      title: 'Insertion Sort',
+                      title: 'Vetores',
                       description: '',
                       backgroundColor: const Color.fromRGBO(255, 238, 128, 1),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Insertionsort()),
+                              builder: (context) =>
+                                  const SelecionarNivelVetor()),
                         );
                       },
                     ),
@@ -142,14 +146,15 @@ class _RevisaoInicioState extends State<RevisaoInicio>
                     ),
                     _buildTimelineItem(
                       number: '5',
-                      title: 'Quick Sort',
+                      title: 'Ponteiros',
                       description: '',
                       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Quicksort()),
+                              builder: (context) =>
+                                  const SelecionarNivelPonteiros()),
                         );
                       },
                     ),
@@ -172,7 +177,7 @@ class _RevisaoInicioState extends State<RevisaoInicio>
     required Color backgroundColor,
   }) {
     return SlideTransition(
-      position: _animation,
+      position: _slideAnimation,
       child: GestureDetector(
         onTap: onPressed,
         child: Row(

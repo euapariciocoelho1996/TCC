@@ -6,6 +6,7 @@ import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
 import 'package:projeto_tcc_flutter/dialog_helper.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
@@ -156,7 +157,7 @@ class _QuizScreenBubble1State extends State<QuizScreenBubble1> {
       ),
       body: Stack(
         children: [
-          // Plano de fundo
+          CustomBackground(),
           Positioned.fill(
             child: Container(
               decoration: const BoxDecoration(

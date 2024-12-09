@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/bubble/NivelTimelineBubble.dart';
 import 'package:projeto_tcc_flutter/bubble/estrelas.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/insertion/NivelTimelineInsertion.dart';
 import 'package:projeto_tcc_flutter/insertion/estrelas.dart';
 import 'package:projeto_tcc_flutter/quick/NivelTimelineQuick.dart';
@@ -22,7 +23,7 @@ class HomeScreenSecundario extends StatefulWidget {
 class _HomeScreenSecundarioState extends State<HomeScreenSecundario>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<Offset> _animation;
+  late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -31,40 +32,34 @@ class _HomeScreenSecundarioState extends State<HomeScreenSecundario>
       vsync: this,
       duration: const Duration(seconds: 1),
     );
-    _animation = Tween<Offset>(
-      begin: const Offset(1.0, 0.0), // Começa fora da tela à direita
-      end: Offset.zero, // Finaliza no centro
-    ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeInOut,
-      ),
-    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: const Offset(0.0, 1.0), // Começa fora da tela (abaixo)
+      end: Offset.zero, // Finaliza na posição original
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
     _controller.forward(); // Inicia a animação
   }
 
   @override
   void dispose() {
-    _controller.dispose(); // Libera recursos do controlador
+    _controller.dispose(); // Libera os recursos do controlador
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return SlideTransition(
-      position: _animation,
+      position: _slideAnimation,
       child: Scaffold(
         backgroundColor: Colors.blueGrey,
         body: Stack(
           children: [
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/1.png"), // Imagem de fundo
-                  fit: BoxFit.cover, // Ajusta a imagem ao tamanho do fundo
-                ),
-              ),
-            ),
+            CustomBackground(),
+            
             ListView(
               padding: const EdgeInsets.all(16.0),
               children: [

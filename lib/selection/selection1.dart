@@ -6,10 +6,10 @@ import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
 import 'package:projeto_tcc_flutter/dialog_helper.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
-
 
 class QuizScreenSelection1 extends StatefulWidget {
   const QuizScreenSelection1({super.key});
@@ -166,128 +166,126 @@ class _QuizScreenSelection1State extends State<QuizScreenSelection1> {
       appBar: AppBar(
         title: const Text('Quiz em Flutter'),
       ),
-      body: Container(
-        /*decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bubble/bg7.png'), // Caminho da imagem
-            fit: BoxFit.cover, // Ajusta a imagem para cobrir toda a tela
-          ),
-        ),*/
-        child: ListView(
-          children: [
-            Column(
-              children: [
-                VidaCoracoes(),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            // exibe o texto da pergunta, acessando currentQuestion['questionText'],
-                            // que é um mapa que contém a pergunta atual.
-                            currentQuestion['questionText'] as String,
-                            style: const TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 24),
-                          Image.asset(
-                            // Image.asset(...) exibe uma imagem associada à pergunta, obtida em currentQuestion['image'].
-                            currentQuestion['image'] as String,
-                            height: 200,
-                            fit: BoxFit.cover,
-                          ),
-                          const SizedBox(height: 24),
-                          // O valor correspondente a 'answers' é uma lista de mapas (List<Map<String, Object>>),
-                          // onde cada mapa contém informações sobre uma resposta, como o texto da resposta e se ela é a correta ou não.
-                          ...(currentQuestion['answers']
-                                  as List<Map<String, Object>>)
-                              .map(
-                            // answer variavel que representa cada elemento da lista de respostas.
-                            (answer) {
-                              Color buttonColor; // guarda cor
-                              if (_isAnswerCorrect == null) {
-                                buttonColor = Colors.blue;
-                              } else if (answer['isCorrect'] ==
-                                  _isAnswerCorrect) {
-                                buttonColor = _isAnswerCorrect!
-                                    ? Colors.green
-                                    : Colors.red;
-                              } else {
-                                buttonColor = Colors.blue;
-                              }
-
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 4.0),
-                                child: CustomButton(
-                                  text: answer['text'] as String,
-                                  color: buttonColor,
-                                  onPressed: _isAnswerCorrect == null
-                                      ? () => _checkAnswer(
-                                          answer['isCorrect'] as bool)
-                                      : null, // aqui ele deixa os botões nulo
-                                ),
-                              );
-                            },
-                          ),
-                          const SizedBox(height: 16),
-                          // formatação das propriedas do texto de feedback
-                          if (_feedbackMessage != null)
+      body: Stack(
+        children: [
+          CustomBackground(),
+          ListView(
+            children: [
+              Column(
+                children: [
+                  VidaCoracoes(),
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
                             Text(
-                              _feedbackMessage!,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: _isAnswerCorrect!
-                                    ? Colors.green
-                                    : Colors.red,
-                              ),
+                              // exibe o texto da pergunta, acessando currentQuestion['questionText'],
+                              // que é um mapa que contém a pergunta atual.
+                              currentQuestion['questionText'] as String,
+                              style: const TextStyle(
+                                  fontSize: 24, fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
                             ),
-                          const SizedBox(height: 16),
-                          // formatação das propriedas da resposta do usuário (correta ou não)
-                          if (_isAnswerCorrect != null)
-                            CustomButton(
-                              text: _isAnswerCorrect!
-                                  ? 'Próxima pergunta'
-                                  : 'Tente novamente', // nome que aparece dentro do botão
-                              color:
-                                  _isAnswerCorrect! ? Colors.blue : Colors.red,
-                              onPressed: _isAnswerCorrect!
-                                  // foi pressionado? sim, anula tudo e vai oara proxima pergunta
-                                  ? _nextQuestion
-                                  : () {
-                                      setState(() {
-                                        _isAnswerCorrect = null;
-                                        _feedbackMessage = null;
-                                      });
-                                    },
+                            const SizedBox(height: 24),
+                            Image.asset(
+                              // Image.asset(...) exibe uma imagem associada à pergunta, obtida em currentQuestion['image'].
+                              currentQuestion['image'] as String,
+                              height: 200,
+                              fit: BoxFit.cover,
                             ),
-                        ],
+                            const SizedBox(height: 24),
+                            // O valor correspondente a 'answers' é uma lista de mapas (List<Map<String, Object>>),
+                            // onde cada mapa contém informações sobre uma resposta, como o texto da resposta e se ela é a correta ou não.
+                            ...(currentQuestion['answers']
+                                    as List<Map<String, Object>>)
+                                .map(
+                              // answer variavel que representa cada elemento da lista de respostas.
+                              (answer) {
+                                Color buttonColor; // guarda cor
+                                if (_isAnswerCorrect == null) {
+                                  buttonColor = Colors.blue;
+                                } else if (answer['isCorrect'] ==
+                                    _isAnswerCorrect) {
+                                  buttonColor = _isAnswerCorrect!
+                                      ? Colors.green
+                                      : Colors.red;
+                                } else {
+                                  buttonColor = Colors.blue;
+                                }
+
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: CustomButton(
+                                    text: answer['text'] as String,
+                                    color: buttonColor,
+                                    onPressed: _isAnswerCorrect == null
+                                        ? () => _checkAnswer(
+                                            answer['isCorrect'] as bool)
+                                        : null, // aqui ele deixa os botões nulo
+                                  ),
+                                );
+                              },
+                            ),
+                            const SizedBox(height: 16),
+                            // formatação das propriedas do texto de feedback
+                            if (_feedbackMessage != null)
+                              Text(
+                                _feedbackMessage!,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: _isAnswerCorrect!
+                                      ? Colors.green
+                                      : Colors.red,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            const SizedBox(height: 16),
+                            // formatação das propriedas da resposta do usuário (correta ou não)
+                            if (_isAnswerCorrect != null)
+                              CustomButton(
+                                text: _isAnswerCorrect!
+                                    ? 'Próxima pergunta'
+                                    : 'Tente novamente', // nome que aparece dentro do botão
+                                color: _isAnswerCorrect!
+                                    ? Colors.blue
+                                    : Colors.red,
+                                onPressed: _isAnswerCorrect!
+                                    // foi pressionado? sim, anula tudo e vai oara proxima pergunta
+                                    ? _nextQuestion
+                                    : () {
+                                        setState(() {
+                                          _isAnswerCorrect = null;
+                                          _feedbackMessage = null;
+                                        });
+                                      },
+                              ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: ConfettiWidget(
-                        confettiController: _confettiController,
-                        blastDirection: pi / 2,
-                        emissionFrequency: 0.05,
-                        numberOfParticles: 25,
-                        maxBlastForce: 20,
-                        minBlastForce: 10,
-                        gravity: 0.3,
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: ConfettiWidget(
+                          confettiController: _confettiController,
+                          blastDirection: pi / 2,
+                          emissionFrequency: 0.05,
+                          numberOfParticles: 25,
+                          maxBlastForce: 20,
+                          minBlastForce: 10,
+                          gravity: 0.3,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
 import 'package:projeto_tcc_flutter/dialog_helper.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
@@ -154,15 +155,10 @@ class _QuizScreenInsertion1State extends State<QuizScreenInsertion1> {
       appBar: AppBar(
         title: const Text('Quiz em Flutter'),
       ),
-      body: Container(
-        /*decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/bubble/bg7.png'), // Caminho da imagem
-            fit: BoxFit.cover, // Ajusta a imagem para cobrir toda a tela
-          ),
-        ),*/
-        child: Container(
-          child: ListView(
+      body: Stack(
+        children: [
+          CustomBackground(),
+          ListView(
             children: [
               Column(
                 children: [
@@ -278,7 +274,7 @@ class _QuizScreenInsertion1State extends State<QuizScreenInsertion1> {
               )
             ],
           ),
-        ),
+        ],
       ),
     );
   }

@@ -20,6 +20,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   timeline_tile: ^2.0.0
   cupertino_icons: ^1.0.8
+  animated_flip_counter: ^0.3.4
   
 
 dev_dependencies:

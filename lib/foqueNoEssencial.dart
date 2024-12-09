@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_tcc_flutter/main-secundario.dart';
+import 'package:projeto_tcc_flutter/bubble/arrasta/NOVA_.dart';
+import 'package:projeto_tcc_flutter/pratica.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
 
 
@@ -64,7 +65,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => Referencias()));
+                      builder: (BuildContext context) => FillInTheBlanksScreen()));
             },
             child: Container(
               width: 104,

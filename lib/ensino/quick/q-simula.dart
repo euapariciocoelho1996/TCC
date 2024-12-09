@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_tcc_flutter/main-secundario.dart';
+import 'package:projeto_tcc_flutter/pratica.dart';
 
 
 

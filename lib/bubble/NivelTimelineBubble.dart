@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_tcc_flutter/Novo-quiz/NOVO-QUIZ.dart';
 import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/bubble/bubble1.dart';
 import 'package:projeto_tcc_flutter/bubble/bubble2.dart';
@@ -6,7 +7,6 @@ import 'package:projeto_tcc_flutter/bubble/bubble3.dart';
 import 'package:projeto_tcc_flutter/ensino/bubble/b-ensino1.dart';
 
 import 'package:provider/provider.dart';
-
 
 class BubbleN extends StatelessWidget {
   const BubbleN({super.key});
@@ -85,7 +85,7 @@ class BubbleN extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const QuizScreenBubble1(),
+                          builder: (context) => QuizAppB(),
                         ),
                       );
                     },

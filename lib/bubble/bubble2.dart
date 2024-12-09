@@ -6,10 +6,10 @@ import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
 import 'package:projeto_tcc_flutter/dialog_helper.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
-
 
 class QuizScreenBubble2 extends StatefulWidget {
   const QuizScreenBubble2({super.key});
@@ -171,24 +171,18 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
       appBar: AppBar(
         title: Text('Quiz em Flutter'),
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            Column(
-              children: [
-                VidaCoracoes(),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Container(
-                        /*decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/bubble/bg7.png'), // Caminho da imagem
-                    fit: BoxFit.cover, // Ajusta a imagem para cobrir toda a tela
-                  ),
-                ),*/
-
+      body: Stack(
+        children: [
+          CustomBackground(),
+          ListView(
+            children: [
+              Column(
+                children: [
+                  VidaCoracoes(),
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
                         child: Column(
                           // mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -222,10 +216,10 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
                                 } else {
                                   buttonColor = Colors.blue;
                                 }
-
+                        
                                 return Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 4.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 4.0),
                                   child: CustomButton(
                                     text: answer['text'] as String,
                                     color: buttonColor,
@@ -270,25 +264,25 @@ class _QuizScreenBubble2State extends State<QuizScreenBubble2> {
                           ],
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: ConfettiWidget(
-                        confettiController: _confettiController,
-                        blastDirection: pi / 2,
-                        emissionFrequency: 0.05,
-                        numberOfParticles: 25,
-                        maxBlastForce: 20,
-                        minBlastForce: 10,
-                        gravity: 0.3,
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: ConfettiWidget(
+                          confettiController: _confettiController,
+                          blastDirection: pi / 2,
+                          emissionFrequency: 0.05,
+                          numberOfParticles: 25,
+                          maxBlastForce: 20,
+                          minBlastForce: 10,
+                          gravity: 0.3,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }

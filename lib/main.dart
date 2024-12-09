@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/appBar.dart';
 import 'package:projeto_tcc_flutter/bodyPrincipal.dart';
-import 'package:projeto_tcc_flutter/main-secundario.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
+import 'package:projeto_tcc_flutter/pratica.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -40,14 +41,7 @@ class HomeScreenLin1 extends StatelessWidget {
         child: Stack(
           children: [
             // Fundo do Drawer
-            Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/1.png"), // Imagem de fundo
-                  fit: BoxFit.cover, // Ajusta a imagem ao tamanho do Drawer
-                ),
-              ),
-            ),
+            CustomBackground(),
             // Conteúdo do Drawer
             Container(
               margin: const EdgeInsets.only(top: 50.0),

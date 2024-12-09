@@ -6,6 +6,7 @@ import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
 import 'package:projeto_tcc_flutter/dialog_helper.dart';
+import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
 import 'package:provider/provider.dart';
@@ -200,114 +201,118 @@ class _QuizScreenBubble3State extends State<QuizScreenBubble3> {
       appBar: AppBar(
         title: Text('Quiz em Flutter'),
       ),
-      body: Container(
-        child: ListView(
-          children: [
-            Column(
-              children: [
-                VidaCoracoes(),
-                Stack(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        // mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            currentQuestion['questionText'] as String,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 24),
-                          Image.asset(
-                            currentQuestion['image'] as String,
-                            height: 230,
-                            fit: BoxFit
-                                .fill, // Use BoxFit.fill para preencher o espaço ou BoxFit.contain para manter a proporção
-                          ),
-                          const SizedBox(height: 24),
-                          ...(currentQuestion['answers']
-                                  as List<Map<String, Object>>)
-                              .map(
-                            (answer) {
-                              Color buttonColor;
-                              if (_isAnswerCorrect == null) {
-                                buttonColor = Colors.blue;
-                              } else if (answer['isCorrect'] ==
-                                  _isAnswerCorrect) {
-                                buttonColor = _isAnswerCorrect!
-                                    ? Colors.green
-                                    : Colors.red;
-                              } else {
-                                buttonColor = Colors.blue;
-                              }
-
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 4.0),
-                                child: CustomButton(
-                                  text: answer['text'] as String,
-                                  color: buttonColor,
-                                  onPressed: _isAnswerCorrect == null
-                                      ? () => _checkAnswer(
-                                          answer['isCorrect'] as bool)
-                                      : null,
-                                ),
-                              );
-                            },
-                          ),
-                          SizedBox(height: 16),
-                          if (_feedbackMessage != null)
+      body: Stack(
+        children: [
+          CustomBackground(),
+          ListView(
+            children: [
+              Column(
+                children: [
+                  VidaCoracoes(),
+                  Stack(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Column(
+                          // mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
                             Text(
-                              _feedbackMessage!,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: _isAnswerCorrect!
-                                    ? Colors.green
-                                    : Colors.red,
-                              ),
+                              currentQuestion['questionText'] as String,
+                              style: const TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
                             ),
-                          SizedBox(height: 16),
-                          if (_isAnswerCorrect != null)
-                            CustomButton(
-                              text: _isAnswerCorrect!
-                                  ? 'Próxima pergunta'
-                                  : 'Tente novamente',
-                              color:
-                                  _isAnswerCorrect! ? Colors.blue : Colors.red,
-                              onPressed: _isAnswerCorrect!
-                                  ? _nextQuestion
-                                  : () {
-                                      setState(() {
-                                        _isAnswerCorrect = null;
-                                        _feedbackMessage = null;
-                                      });
-                                    },
+                            const SizedBox(height: 24),
+                            Image.asset(
+                              currentQuestion['image'] as String,
+                              height: 230,
+                              fit: BoxFit
+                                  .fill, // Use BoxFit.fill para preencher o espaço ou BoxFit.contain para manter a proporção
                             ),
-                        ],
+                            const SizedBox(height: 24),
+                            ...(currentQuestion['answers']
+                                    as List<Map<String, Object>>)
+                                .map(
+                              (answer) {
+                                Color buttonColor;
+                                if (_isAnswerCorrect == null) {
+                                  buttonColor = Colors.blue;
+                                } else if (answer['isCorrect'] ==
+                                    _isAnswerCorrect) {
+                                  buttonColor = _isAnswerCorrect!
+                                      ? Colors.green
+                                      : Colors.red;
+                                } else {
+                                  buttonColor = Colors.blue;
+                                }
+
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 4.0),
+                                  child: CustomButton(
+                                    text: answer['text'] as String,
+                                    color: buttonColor,
+                                    onPressed: _isAnswerCorrect == null
+                                        ? () => _checkAnswer(
+                                            answer['isCorrect'] as bool)
+                                        : null,
+                                  ),
+                                );
+                              },
+                            ),
+                            SizedBox(height: 16),
+                            if (_feedbackMessage != null)
+                              Text(
+                                _feedbackMessage!,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: _isAnswerCorrect!
+                                      ? Colors.green
+                                      : Colors.red,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            SizedBox(height: 16),
+                            if (_isAnswerCorrect != null)
+                              CustomButton(
+                                text: _isAnswerCorrect!
+                                    ? 'Próxima pergunta'
+                                    : 'Tente novamente',
+                                color: _isAnswerCorrect!
+                                    ? Colors.blue
+                                    : Colors.red,
+                                onPressed: _isAnswerCorrect!
+                                    ? _nextQuestion
+                                    : () {
+                                        setState(() {
+                                          _isAnswerCorrect = null;
+                                          _feedbackMessage = null;
+                                        });
+                                      },
+                              ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: ConfettiWidget(
-                        confettiController: _confettiController,
-                        blastDirection: pi / 2,
-                        emissionFrequency: 0.05,
-                        numberOfParticles: 25,
-                        maxBlastForce: 20,
-                        minBlastForce: 10,
-                        gravity: 0.3,
+                      Align(
+                        alignment: Alignment.topCenter,
+                        child: ConfettiWidget(
+                          confettiController: _confettiController,
+                          blastDirection: pi / 2,
+                          emissionFrequency: 0.05,
+                          numberOfParticles: 25,
+                          maxBlastForce: 20,
+                          minBlastForce: 10,
+                          gravity: 0.3,
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          ),
+        ],
       ),
     );
   }

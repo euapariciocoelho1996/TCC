@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Counter with ChangeNotifier {
   // Variáveis e métodos para o contador de pontos
-  int _count = 900;
+  int _count = 4800;
   int get count => _count;
 
   void increment() {
