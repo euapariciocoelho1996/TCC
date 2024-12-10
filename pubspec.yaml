@@ -21,6 +21,7 @@ dependencies:
   timeline_tile: ^2.0.0
   cupertino_icons: ^1.0.8
   animated_flip_counter: ^0.3.4
+  flutter_highlight: ^0.7.0
   
 
 dev_dependencies:

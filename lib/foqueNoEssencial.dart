@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:projeto_tcc_flutter/bubble/arrasta/NOVA_.dart';
+import 'package:projeto_tcc_flutter/Bubble2/Completar.dart';
+import 'package:projeto_tcc_flutter/Bubble2/area-cod.dart';
+
 import 'package:projeto_tcc_flutter/pratica.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
-
 
 import 'pages/algoritmos.dart';
 
@@ -65,7 +66,8 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => FillInTheBlanksScreen()));
+                      builder: (BuildContext context) =>
+                          const FillInTheBlanksScreen()));
             },
             child: Container(
               width: 104,
@@ -101,7 +103,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => const Algoritmos()));
+                      builder: (BuildContext context) => Algoritmos()));
             },
             child: Container(
               width: 104,

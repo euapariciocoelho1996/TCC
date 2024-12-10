@@ -5,7 +5,9 @@ Future<void> showCorrectAnswerDialog({
   required BuildContext context,
   required String correctMessage,
   required String explanation,
-  required VoidCallback onNextQuestion,
+  String? textoBotao,
+  // tornei opcional caso der erro voltar para required
+  VoidCallback? onNextQuestion,
 }) {
   return showGeneralDialog(
     context: context,
@@ -57,9 +59,9 @@ Future<void> showCorrectAnswerDialog({
                   ),
                   onPressed: () {
                     Navigator.of(context).pop(); // Fechar o dialog
-                    onNextQuestion(); // Avança para a próxima pergunta
+                    onNextQuestion!(); // Avança para a próxima pergunta
                   },
-                  child: const Text("Próxima Pergunta"),
+                  child: Text(textoBotao ?? 'Continuar'),
                 ),
               ],
             ),
