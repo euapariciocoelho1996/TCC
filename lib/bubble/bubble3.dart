@@ -5,7 +5,7 @@ import 'package:projeto_tcc_flutter/GameOver.dart';
 import 'package:projeto_tcc_flutter/ProviderCounter.dart';
 import 'package:projeto_tcc_flutter/Vidas.dart';
 import 'package:projeto_tcc_flutter/custom_button.dart';
-import 'package:projeto_tcc_flutter/dialog_helper.dart';
+
 import 'package:projeto_tcc_flutter/fundo.dart';
 import 'package:projeto_tcc_flutter/messages.dart';
 
@@ -170,8 +170,8 @@ class _QuizScreenBubble3State extends State<QuizScreenBubble3> {
                 as String;
         final explanation = currentQuestion['explanation'] as String;
 
-        showCorrectAnswerDialog(
-            context, correctAnswer, explanation, _confettiController);
+        //showCorrectAnswerDialog(
+            //context, correctAnswer, explanation, _confettiController);
 
         final contador = Provider.of<Counter>(context, listen: false).count;
         if (contador < 900) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projeto_tcc_flutter/Bubble2/Completar.dart';
 import 'package:projeto_tcc_flutter/Bubble2/area-cod.dart';
+import 'package:projeto_tcc_flutter/Bubble2/teste.dart';
 
 import 'package:projeto_tcc_flutter/pratica.dart';
 import 'package:projeto_tcc_flutter/pages/referencias.dart';
@@ -103,7 +104,7 @@ class Foquenoessencial extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) => Algoritmos()));
+                      builder: (BuildContext context) => CodeCompletionPage()));
             },
             child: Container(
               width: 104,
